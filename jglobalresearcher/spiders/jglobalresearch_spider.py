@@ -32,7 +32,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		self.moreButtonXpath = "//img[contains(@src,'/common/images/btn_more.png')]"
 		self.nextPagexpath = "//a[contains(@id,'JD_P_NEXT')]/img"
 		allowed_domains = ["http://jglobal.jst.go.jp"]
-		self.start_urls=["http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901079241931254&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1",
+		self.start_urls=[#"http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901079241931254&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1",
 						"http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901069127676630&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1"]
 		self.JGLOBAL_DOMAIN = "http://jglobal.jst.go.jp"
 		self.translationDict = {u'\u30da\u30fc\u30b8':'Page',
@@ -54,38 +54,41 @@ class jglobalresearcher_spider(CrawlSpider):
 		if system() == 'Darwin':
 			driver = webdriver.Chrome("./chromedriver")
 			# self.driver = webdriver.Firefox()
-			print 'mac'
+
 		elif system() =='Windows':
 			driver = webdriver.Chrome("chromedriver.exe")
 			# self.driver = webdriver.Firefox()
-			print 'windows!'
+	
 		return driver
 	
 	def returnJGlobalID(self,url):
 		#return id after GLOBAL_ID
 		return url.split('=')[1][0:-2]
 
-	def parseDepartmentAffil(self,mainDict, innerHTML,other=False):
+	def parseDepartmentAffil(self, elem,other=False):
 		other_flag = ''
 		if other:
 			other_flag='Other'
-		soup = BeautifulSoup(innerHTML)
+
+		soup = self.returnProperSoup(elem)
+
+		returnDict = {}
 		if len(soup)==0:
-			return mainDict
+			return returnDict
 		#headers are in a span class so get the next text sibling
 		#to key-value in department affiliation div 
 
 		for span in soup.find('p',{'class':'light mB10'}).findAll('span'):
 			cleanedHeader = span.text.strip().replace(u'\uff1a','')
 			translated_key=self.translationDict[cleanedHeader]
-			mainDict[other_flag+translated_key]=span.next_sibling.strip()
+			returnDict[other_flag+translated_key]=span.next_sibling.strip()
 		#parse and find link to agency link
 		try:
-			mainDict[other_flag+'Institution'] = soup.find('a').text
-			mainDict[other_flag+'Institution_link'] = soup.find('a')['href']
+			returnDict[other_flag+'Institution'] = soup.find('a').text
+			returnDict[other_flag+'Institution_link'] = soup.find('a')['href']
 		except:
 			pass
-		return mainDict
+		return returnDict
 
 	def returnFreeText(self,mainDict,innerHTML,key):
 		# return div as a bunch of free text
@@ -127,21 +130,21 @@ class jglobalresearcher_spider(CrawlSpider):
 		driver2.set_window_size(1920, 1000)
 		masterSoup = BeautifulSoup('<html><body><body></html>')
 		conditionFlag = True
-		print 'entering while loop'
+	
 		while  conditionFlag:
-			print 'waiting'
+	
 			WebDriverWait(driver2 , 60).until(
 				EC.invisibility_of_element_located((By.ID, 'JD_MAIN_LD'))
 				# lambda x: x.find_element(By.ID,'JD_MAIN_LD')
 				)
-			print 'not waiting'
+		
 			mainElem = driver2.find_element(By.ID,'JD_MAIN')
 			mainElemHTML = mainElem.get_attribute('innerHTML')
 			soup = BeautifulSoup(mainElemHTML)
 			for div in soup.html.body.findAll('div',recursive=False):
-				print div
+		
 				masterSoup.html.body.append(div)
-			print len(masterSoup.findAll('div',recursive=False))
+		
 			if self.nextButtonValid(driver2):
 				nextButton = driver2.find_element_by_xpath(nextButtonXpath)
 				self.scroll_element_into_view(driver2,nextButton)
@@ -154,7 +157,9 @@ class jglobalresearcher_spider(CrawlSpider):
 		return masterSoup
 
 	def returnProperSoup(self,elem):
-		if self.is_element_present(elem,self.moreButtonXpath):
+		flag = self.is_element_present(elem,self.moreButtonXpath)
+
+		if flag:
 			html = elem.get_attribute('innerHTML')
 			soup = BeautifulSoup(html)
 			link = self.JGLOBAL_DOMAIN + soup.find('p',{'class':'txtAR'}).find('a')['href']
@@ -170,17 +175,8 @@ class jglobalresearcher_spider(CrawlSpider):
 		soup = self.returnProperSoup(elem)
 
 		if len(soup)==0:
-			return []
-		# if self.is_element_present(miscElem,self.moreButtonXpath):
-		# 	html = miscElem.get_attribute('innerHTML')
-		# 	soup = BeautifulSoup(html)
-		# 	link = self.JGLOBAL_DOMAIN + soup.find('p',{'class':'txtAR'}).find('a')['href']
-		# 	soup = self.getAllPagesInnerHTML(link)
-		# else:
-		# 	innerHTML = miscElem.get_attribute('innerHTML')
-		# 	soup = BeautifulSoup(innerHTML)
-		
-		
+			return papers
+
 
 		#translation of unicode headers into english
 
@@ -193,7 +189,7 @@ class jglobalresearcher_spider(CrawlSpider):
 
 
 		for index,div in enumerate(soup.html.body.findAll('div',recursive=False)):
-			print div
+
 			paperDict = {}
 
 			link = div.find('a')['href']
@@ -221,14 +217,22 @@ class jglobalresearcher_spider(CrawlSpider):
 		return papers
 
 	def is_element_present(self,elem,xpath):
-	    try: 
-	    	elem.find_element_by_xpath(xpath)
-	    except NoSuchElementException: 
-	    	return False
-	    return True
-	def parseResearchGrants(self,innerHTML):
-		soup = BeautifulSoup(innerHTML)
+		try: 
+			newElem = elem.find_element_by_xpath(xpath)
+			if (len(newElem.get_attribute('innerHTML'))==0):
+				return False
+			else:
+				return True
+		except NoSuchElementException: 
+			return False
+
+		return True
+
+	def parseResearchGrants(self,elem):
+		
+		soup = self.returnProperSoup(elem)
 		grantArray = []
+
 		for row in soup.findAll('tr'):
 		    grantDict = {}
 		    if len(row.th.text)>0:
@@ -267,8 +271,9 @@ class jglobalresearcher_spider(CrawlSpider):
 					linkDict['LinkID'] = match.group(1)
 			array.append(linkDict)
 		return array
-	def parseResearchTags(self,innerHTML):
-		soup = BeautifulSoup(innerHTML)
+
+	def parseResearchTags(self,elem):
+		soup = self.returnProperSoup(elem)
 		array = []
 		if len(soup)==0:
 			return None
@@ -298,6 +303,7 @@ class jglobalresearcher_spider(CrawlSpider):
 			)
 
 		dept_affil_div = driver.find_element(By.ID,'JD_CS_2')
+
 		jobTitle_div = driver.find_element(By.ID,'JD_CS_3')
 		other_affil = driver.find_element(By.ID,'JD_CS_4')
 		field_of_study = driver.find_element(By.ID,'JD_RFD_J')
@@ -308,34 +314,24 @@ class jglobalresearcher_spider(CrawlSpider):
 		papersElem = driver.find_element(By.ID,'JD_AR')
 
 		mainDict['Other_Source_Links'] = self.parseOtherSourceLinks(other_source_links)
-		# if not self.is_element_present(papersMoreButtonXP):
-		# 	xpath = "//td[contains(@id,'JD_PA')]"
-		# 	elem = driver.find_element_by_xpath(xpath)
-		# 	papersElem = elem.get_attribute('innerHTML')
-		# if not self.is_element_present(miscMoreButtonXP): 
 
-
-		mainDict = self.parseDepartmentAffil(mainDict, dept_affil_div.get_attribute('innerHTML'))
-
+		mainDict['Department_Affiliation'] = self.parseDepartmentAffil(dept_affil_div)
+		otherAffilDict = self.parseDepartmentAffil(other_affil,other=True)
+		if len(otherAffilDict)>0:
+			mainDict['Department_Affiliation'] = (mainDict['Department_Affiliation'].items() +
+													otherAffilDict.items())
 		mainDict['JobTitle'] = jobTitle_div.text
-		mainDict = self.parseDepartmentAffil(mainDict, other_affil.get_attribute('innerHTML'),other=True)
+		
 
-		mainDict['Field_Of_Study'] = self.parseResearchTags(field_of_study.get_attribute('innerHTML'))
-		mainDict['ResearchKeywords'] = self.parseResearchTags(research_keywords.get_attribute('innerHTML'))
-		mainDict['ResearchGrants'] = self.parseResearchGrants(grantResearch.get_attribute('innerHTML'))		
-		mainDict['Papers'] = self.scrapePapers(mainDict,miscElem)
+		mainDict['Field_Of_Study'] = self.parseResearchTags(field_of_study)
+		mainDict['ResearchKeywords'] = self.parseResearchTags(research_keywords)
+		mainDict['ResearchGrants'] = self.parseResearchGrants(grantResearch)		
+		mainDict['Papers'] = self.scrapePapers(mainDict,papersElem)
 		mainDict['Misc'] = self.scrapePapers(mainDict,miscElem)
 		print 'done with papers'
-		with codecs.open('export.json','a+','utf-8') as f:
+		with codecs.open('export2.json','a+','utf-8') as f:
 
 		    json.dump(mainDict, f,indent=4)
-			# for k,v in mainDict.iteritems():
-			# 	if type(v) is dict:
-			# 		for k2,v2 in v.iteritems():
-			# 			f.write( '%s:%s\n' %(k2.decode('utf-8'),v2.decode('utf-8')))
-			# 	else:
-			# 		f.write( '%s:%s\n' %(k.decode('utf-8'),v.decode('utf-8')))
-		# item['Dict'] = mainDict
 
 		driver.close()
 		return item
