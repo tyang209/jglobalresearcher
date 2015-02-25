@@ -14,6 +14,7 @@ import json
 from bs4 import BeautifulSoup
 
 from selenium import webdriver
+import selenium.webdriver.support.expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
@@ -29,12 +30,17 @@ class jglobalresearcher_spider(CrawlSpider):
 
 		if system() == 'Darwin':
 			self.driver = webdriver.Chrome("./chromedriver")
+			# self.driver = webdriver.Firefox()
 			print 'mac'
 		elif system() =='Windows':
 			self.driver = webdriver.Chrome("chromedriver.exe")
+			# self.driver = webdriver.Firefox()
 			print 'windows!'
-		allowed_domains = ["jglobal.jst.go.jp"]
+		self.moreButtonXpath = "//img[contains(@src,'/common/images/btn_more.png')]"
+		self.nextPagexpath = "//a[contains(@id,'JD_P_NEXT')]/img"
+		allowed_domains = ["http://jglobal.jst.go.jp"]
 		self.start_urls=["http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901040373420620&q=kyoto%20university&t=1"]
+		self.JGLOBAL_DOMAIN = "http://jglobal.jst.go.jp"
 		self.translationDict = {u'\u30da\u30fc\u30b8':'Page',
                    u'\u53f7':'Issue',
                     u'\u5dfb':'Volume',
@@ -89,10 +95,83 @@ class jglobalresearcher_spider(CrawlSpider):
 			mainDict[key] = ''
 		return mainDict
 
+	def nextButtonValid(self, driver2):
+		nextButtonXpath = "//img[contains(@src,'/common/images/pager_arrow_next.png')]"
+		nextButtonGreyXpath  ="//img[contains(@src,'/common/images/pager_arrow_next_no.png')]"
+		print 'validating'
+		try:
+			elem = driver2.find_element_by_xpath("//div[contains(@id,'JD_PAGER')]")
+			if self.is_element_present(elem,nextButtonXpath):
+				return True
+			elif self.is_element_present(elem,nextButtonGreyXpath):
+				return False
+			else:
+				return False
 
-	def scrapePapers(self,mainDict,innerHTML):
+		except NoSuchElementException:
+			return False
+
+	def scroll_element_into_view(self,driver, element):
+   	 
+	    y = element.location['y']
+	    driver.execute_script('window.scrollTo(0, {0})'.format(y))
+
+	def getAllPagesInnerHTML(self,link):
+
+		nextButtonXpath = "//img[contains(@src,'/common/images/pager_arrow_next.png')]"		
+		if system() == 'Darwin':
+			driver2 = webdriver.Chrome("./chromedriver")
+			# driver2 = webdriver.Firefox()
+			print 'mac'
+		elif system() =='Windows':
+			driver2 = webdriver.Chrome("chromedriver.exe")
+			# driver2 = webdriver.Firefox()
+			print 'windows!'
+		print link
+		driver2.get(link)
+		driver2.set_window_size(1920, 1000)
+		masterSoup = BeautifulSoup('<html><body><body></html>')
+		conditionFlag = True
+		print 'entering while loop'
+		while  conditionFlag:
+			print 'waiting'
+			WebDriverWait(driver2 , 60).until(
+				EC.invisibility_of_element_located((By.ID, 'JD_MAIN_LD'))
+				# lambda x: x.find_element(By.ID,'JD_MAIN_LD')
+				)
+			print 'not waiting'
+			mainElem = driver2.find_element(By.ID,'JD_MAIN')
+			mainElemHTML = mainElem.get_attribute('innerHTML')
+			soup = BeautifulSoup(mainElemHTML)
+			for div in soup.html.body.findAll('div',recursive=False):
+				print div
+				masterSoup.html.body.append(div)
+			print len(masterSoup.findAll('div',recursive=False))
+			if self.nextButtonValid(driver2):
+				nextButton = driver2.find_element_by_xpath(nextButtonXpath)
+				self.scroll_element_into_view(driver2,nextButton)
+				nextButton.click()
+			else:
+				conditionFlag = False
+
+
+		driver2.close()
+		return masterSoup
+
+
+	def scrapePapers(self,mainDict,miscElem):
+		if self.is_element_present(miscElem,self.moreButtonXpath):
+			html = miscElem.get_attribute('innerHTML')
+			soup = BeautifulSoup(html)
+			link = self.JGLOBAL_DOMAIN + soup.find('p',{'class':'txtAR'}).find('a')['href']
+			soup = self.getAllPagesInnerHTML(link)
+			for div in soup.findAll('div'):
+				print div
+		else:
+			innerHTML = miscElem.get_attribute('innerHTML')
+			soup = BeautifulSoup(innerHTML)
 		papers = []
-		soup = BeautifulSoup(innerHTML)
+		
 
 		#translation of unicode headers into english
 
@@ -103,37 +182,38 @@ class jglobalresearcher_spider(CrawlSpider):
 		#only return divs that are direct decendents.
 		#beautiful soup automatically adds a html,body fields
 
+
 		for index,div in enumerate(soup.html.body.findAll('div',recursive=False)):
+			print div
+			paperDict = {}
 
-		    paperDict = {}
-		    
-		    link = div.find('a')['href']
-		    
-		    if link in linkArray:
-		        continue
-		        
-		    linkArray.append(link)
-		    paperDict['PaperLink'] = link
-		    match = jglobal_id_regex.match(link)
-		    
-		    if match:
-		        paperDict['PaperinJGLOBAL'] = 'Yes'
-		        paperDict['JGLOBALID'] = match.group(1)   
-		        
-		    for p in div.findAll('p'):
-		        if p['class'] in (['light'],['txtR', 'light']):
-		            paperDict['Title'] = p.text
+			link = div.find('a')['href']
 
-		        elif p['class'] in [['light','mB10']]:
-		            for span in p.findAll('span',{'class':'fwB'}):
-		                translatedKey = self.translationDict[span.text.replace(u'\uff1a','').strip()]
-		                paperDict[translatedKey]= span.next_sibling.strip()
-		    papers.append(paperDict)
+			if link in linkArray:
+			    continue
+			    
+			linkArray.append(link)
+			paperDict['PaperLink'] = link
+			match = jglobal_id_regex.match(link)
+
+			if match:
+			    paperDict['PaperinJGLOBAL'] = 'Yes'
+			    paperDict['JGLOBALID'] = match.group(1)   
+			    
+			for p in div.findAll('p'):
+			    if p['class'] in (['light'],['txtR', 'light']):
+			        paperDict['Title'] = p.text
+
+			    elif p['class'] in [['light','mB10']]:
+			        for span in p.findAll('span',{'class':'fwB'}):
+			            translatedKey = self.translationDict[span.text.replace(u'\uff1a','').strip()]
+			            paperDict[translatedKey]= span.next_sibling.strip()
+			papers.append(paperDict)
 		return papers
 
-	def is_element_present(self, xpath):
+	def is_element_present(self,elem,xpath):
 	    try: 
-	    	self.driver.find_element_by_xpath(xpath)
+	    	elem.find_element_by_xpath(xpath)
 	    except NoSuchElementException: 
 	    	return False
 	    return True
@@ -189,10 +269,9 @@ class jglobalresearcher_spider(CrawlSpider):
 
 
 	def parse(self, response):
-
+		print response.url
 		self.driver.get(response.url)
 		self.driver.set_window_size(1920, 1000)
-		time.sleep(5)
 		item = JglobalresearcherItem()
 
 		mainDict = {}
@@ -214,6 +293,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		other_source_links = self.driver.find_elements_by_xpath("//a[contains(@class,'mR10')]")
 		research_keywords = self.driver.find_element(By.ID,'JD_RFKW_2')
 		grantResearch = self.driver.find_element(By.ID,'JD_THM')
+		miscElem = self.driver.find_element(By.ID,'JD_AR')
 
 		mainDict['Other_Source_Links'] = self.parseOtherSourceLinks(other_source_links)
 		# if not self.is_element_present(papersMoreButtonXP):
@@ -221,9 +301,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		# 	elem = self.driver.find_element_by_xpath(xpath)
 		# 	papersElem = elem.get_attribute('innerHTML')
 		# if not self.is_element_present(miscMoreButtonXP): 
-		xpath = "//td[contains(@id,'JD_AR')]"
-		elem = self.driver.find_element_by_xpath(xpath)
-		miscElem = elem.get_attribute('innerHTML')
+
 
 		mainDict = self.parseDepartmentAffil(mainDict, dept_affil_div.get_attribute('innerHTML'))
 
@@ -233,8 +311,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		mainDict['Field_Of_Study'] = self.parseResearchTags(field_of_study.get_attribute('innerHTML'))
 		mainDict['ResearchKeywords'] = self.parseResearchTags(research_keywords.get_attribute('innerHTML'))
 		mainDict['ResearchGrants'] = self.parseResearchGrants(grantResearch.get_attribute('innerHTML'))		
-		# mainDict['Papers'] = self.scrapePapers(mainDict,papersElem)
-		# print 'getting papers'
+
 		mainDict['Misc'] = self.scrapePapers(mainDict,miscElem)
 		print 'done with papers'
 		with codecs.open('export.json','w+','utf-8') as f:
