@@ -39,7 +39,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		self.moreButtonXpath = "//img[contains(@src,'/common/images/btn_more.png')]"
 		self.nextPagexpath = "//a[contains(@id,'JD_P_NEXT')]/img"
 		allowed_domains = ["http://jglobal.jst.go.jp"]
-		self.start_urls=["http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901040373420620&q=kyoto%20university&t=1"]
+		self.start_urls=["http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901079241931254&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1"]
 		self.JGLOBAL_DOMAIN = "http://jglobal.jst.go.jp"
 		self.translationDict = {u'\u30da\u30fc\u30b8':'Page',
                    u'\u53f7':'Issue',
@@ -158,19 +158,33 @@ class jglobalresearcher_spider(CrawlSpider):
 		driver2.close()
 		return masterSoup
 
-
-	def scrapePapers(self,mainDict,miscElem):
-		if self.is_element_present(miscElem,self.moreButtonXpath):
-			html = miscElem.get_attribute('innerHTML')
+	def returnProperSoup(self,elem):
+		if self.is_element_present(elem,self.moreButtonXpath):
+			html = elem.get_attribute('innerHTML')
 			soup = BeautifulSoup(html)
 			link = self.JGLOBAL_DOMAIN + soup.find('p',{'class':'txtAR'}).find('a')['href']
 			soup = self.getAllPagesInnerHTML(link)
-			for div in soup.findAll('div'):
-				print div
+			return soup
 		else:
-			innerHTML = miscElem.get_attribute('innerHTML')
+			innerHTML = elem.get_attribute('innerHTML')
 			soup = BeautifulSoup(innerHTML)
+			return soup
+
+	def scrapePapers(self,mainDict,elem):
 		papers = []
+		soup = self.returnProperSoup(elem)
+
+		if len(soup)==0:
+			return []
+		# if self.is_element_present(miscElem,self.moreButtonXpath):
+		# 	html = miscElem.get_attribute('innerHTML')
+		# 	soup = BeautifulSoup(html)
+		# 	link = self.JGLOBAL_DOMAIN + soup.find('p',{'class':'txtAR'}).find('a')['href']
+		# 	soup = self.getAllPagesInnerHTML(link)
+		# else:
+		# 	innerHTML = miscElem.get_attribute('innerHTML')
+		# 	soup = BeautifulSoup(innerHTML)
+		
 		
 
 		#translation of unicode headers into english
@@ -222,11 +236,12 @@ class jglobalresearcher_spider(CrawlSpider):
 		grantArray = []
 		for row in soup.findAll('tr'):
 		    grantDict = {}
-		    years = row.th.text.split(' - ')
-		    if len(years[0])>0:
-		        grantDict['StartYear']=years[0]
-		    if len(years[1])>0:
-		        grantDict['EndYear'] = years[1]
+		    if len(row.th.text)>0:
+			    years = row.th.text.split(' - ')
+			    if len(years[0])>0:
+			        grantDict['StartYear']=years[0]
+			    if len(years[1])>0:
+			        grantDict['EndYear'] = years[1]
 		    grantDict['Grant']  = row.td.text
 		    grantArray.append(grantDict)
 		return grantArray
@@ -293,7 +308,8 @@ class jglobalresearcher_spider(CrawlSpider):
 		other_source_links = self.driver.find_elements_by_xpath("//a[contains(@class,'mR10')]")
 		research_keywords = self.driver.find_element(By.ID,'JD_RFKW_2')
 		grantResearch = self.driver.find_element(By.ID,'JD_THM')
-		miscElem = self.driver.find_element(By.ID,'JD_AR')
+		miscElem = self.driver.find_element(By.ID,'JD_PA')
+		papersElem = self.driver.find_element(By.ID,'JD_AR')
 
 		mainDict['Other_Source_Links'] = self.parseOtherSourceLinks(other_source_links)
 		# if not self.is_element_present(papersMoreButtonXP):
@@ -311,7 +327,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		mainDict['Field_Of_Study'] = self.parseResearchTags(field_of_study.get_attribute('innerHTML'))
 		mainDict['ResearchKeywords'] = self.parseResearchTags(research_keywords.get_attribute('innerHTML'))
 		mainDict['ResearchGrants'] = self.parseResearchGrants(grantResearch.get_attribute('innerHTML'))		
-
+		mainDict['Papers'] = self.scrapePapers(mainDict,miscElem)
 		mainDict['Misc'] = self.scrapePapers(mainDict,miscElem)
 		print 'done with papers'
 		with codecs.open('export.json','w+','utf-8') as f:
