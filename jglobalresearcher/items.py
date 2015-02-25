@@ -9,5 +9,4 @@ import scrapy
 
 
 class JglobalresearcherItem(scrapy.Item):
-    Name = scrapy.Field()
-    pass
+    Dict = scrapy.Field()

@@ -1,0 +1,109 @@
+{
+    "Field_Of_Study": [
+        "\u751f\u7269\u751f\u7523\u5316\u5b66\u30fb\u751f\u7269\u6709\u6a5f\u5316\u5b66", 
+        "\u6728\u8cea\u79d1\u5b66"
+    ], 
+    "Institution_link": "/detail.php?JGLOBAL_ID=200905059780262599&q=kyoto%20university&t=1", 
+    "Other_Source_Links": [
+        {
+            "LinkID": "0124187", 
+            "Link": "http://researchmap.jp/read0124187/?lang=japanese&sign=5b778729bf0112a33099e21b66f4dabd", 
+            "Source": "researchmap"
+        }, 
+        {
+            "Source": "Resolver", 
+            "Link": "http://rns.nii.ac.jp/services/redirect/?source=kaken&target=resolver&id=00152687&sign=160dae28e9b16edf457b5f77ee7bdb92", 
+            "LinkID": "00152687"
+        }, 
+        {
+            "Source": "NDL", 
+            "Link": "http://iss.ndl.go.jp/api/openurl?au=%E7%89%87%E5%B1%B1%E5%81%A5%E8%87%B3&sign=57f4841137177c828559f444959ed2b1"
+        }
+    ], 
+    "ResearchKeywords": [
+        "\u6797\u7523\u5b66", 
+        "\u68ee\u6797\u30d0\u30a4\u30aa\u30de\u30b9\u5316\u5b66", 
+        "\u751f\u7269\u6709\u6a5f\u5316\u5b66", 
+        "\u6a39\u6728\u751f\u5316\u5b66"
+    ], 
+    "Misc": [
+        {
+            "PubYear": "1978\u5e74", 
+            "Title": "Acetylation of cellulose in the paraformaldehyde-dimethyl sulfoxide solvent system and its application to the chemical processing of wood\u00a0", 
+            "JournalName": "Cellulose Chemistry and Technology", 
+            "Volume": "12", 
+            "Authors": "SHIRAISHI, Nobuo, KATAYAMA, Takeshi, YOKOTA, Tokuo", 
+            "PaperLink": "/search.php?q=%22Acetylation%20of%20cellulose%20in%20the%20paraformaldehyde-dimethyl%20sulfoxide%20solvent%20system%20and%20its%20application%20to%20the%20chemical%20processing%20of%20wood%22&t=2", 
+            "Issue": "4", 
+            "Page": "429-443"
+        }, 
+        {
+            "PubYear": "1980\u5e74", 
+            "Title": "Initial reactions in the fungal degradation of guaiacylglycerol-\u03b2-conifer ether, a lignin substructure model\u00a0", 
+            "JournalName": "Archives of Mirobiology", 
+            "Volume": "126", 
+            "Authors": "KATAYAMA, Takeshi, NAKATSUBO, Fumiaki, HIGUCHI, Ta\u30fb\u30fb\u30fb", 
+            "PaperLink": "/search.php?q=%22Initial%20reactions%20in%20the%20fungal%20degradation%20of%20guaiacylglycerol-%CE%B2-conifer%20ether%2C%20a%20lignin%20substructure%20model%22&t=2", 
+            "Issue": "2", 
+            "Page": "127-132"
+        }, 
+        {
+            "PubYear": "1981\u5e74", 
+            "PaperinJGLOBAL": "Yes", 
+            "JournalName": "Archives of Mirobiology", 
+            "Title": "Degradation of arylglycerol-\u03b2-aryl ethers, lignin substructure models, by Fusarium solani", 
+            "JGLOBALID": "200902026164951406", 
+            "Volume": "130", 
+            "Authors": "KATAYAMA, Takeshi, NAKATSUBO, Fumiaki, HIGUCHI, Ta\u30fb\u30fb\u30fb", 
+            "PaperLink": "/detail.php?JGLOBAL_ID=200902026164951406&q=kyoto%20university&t=1", 
+            "Issue": "3", 
+            "Page": "198-203"
+        }, 
+        {
+            "PubYear": "1981\u5e74", 
+            "Title": "Syntheses of arylglycerol-\u03b2-aryl ether\u00a0", 
+            "JournalName": "Mokuzai Gakkaishi", 
+            "Volume": "27", 
+            "Authors": "KATAYAMA, Takeshi, NAKATSUBO, Fumiaki, HIGUCHI, Ta\u30fb\u30fb\u30fb", 
+            "PaperLink": "/search.php?q=%22Syntheses%20of%20arylglycerol-%CE%B2-aryl%20ether%22&t=2", 
+            "Issue": "3", 
+            "Page": "223-230"
+        }, 
+        {
+            "PubYear": "1982\u5e74", 
+            "Title": "Xenobiotic aspects of lignin biodegradation in white-rot fungi\u00a0", 
+            "JournalName": "TAPPI Proceedings (1982 TAPPI Research and Develop\u30fb\u30fb\u30fb", 
+            "Authors": "SHIMADA, Mikio, KATAYAMA, Takeshi, HIGUCHI, Takayo\u30fb\u30fb\u30fb", 
+            "PaperLink": "/search.php?q=%22Xenobiotic%20aspects%20of%20lignin%20biodegradation%20in%20white-rot%20fungi%22&t=2", 
+            "Page": "241-247"
+        }
+    ], 
+    "JGLOBALID": "200901040373420620", 
+    "ResearchGrants": [
+        {
+            "StartYear": "1998", 
+            "Grant": "\u5916\u6a39\u76ae\u30b3\u30eb\u30af\u8cea\u306e\u30b9\u30d9\u30ea\u30f3\u82b3\u9999\u65cf\u90e8\u5206\u306e\u69cb\u9020\u3068\u751f\u5408\u6210"
+        }, 
+        {
+            "StartYear": "1991", 
+            "Grant": "\u6a39\u6728\u30d5\u30a7\u30cb\u30eb\u30d7\u30ed\u30d1\u30ce\u30a4\u30c9(\u7279\u306b\u30ea\u30b0\u30ca\u30f3\u30fb\u30cd\u30aa\u30ea\u30b0\u30ca\u30f3)\u306e\u751f\u5408\u6210\u3068\u305d\u306e\u7acb\u4f53\u5316\u5b66\u7684\u6a5f\u69cb"
+        }, 
+        {
+            "StartYear": "1994", 
+            "Grant": "\u30b7\u30ea\u30f3\u30ae\u30eb\u578b\u30ea\u30b0\u30ca\u30f3\u30fb\u30cd\u30aa\u30ea\u30b0\u30ca\u30f3\u306e\u751f\u5408\u6210\u7d4c\u8def\u3068\u305d\u306e\u6a39\u6728\u751f\u7406\u5b66\u7684\u7814\u7a76"
+        }, 
+        {
+            "StartYear": "1982", 
+            "Grant": "\u30ea\u30b0\u30ca\u30f3,\u30cd\u30aa\u30ea\u30b0\u30ca\u30f3\u53ca\u3073\u30ea\u30b0\u30cb\u30f3\u30b5\u30d6\u30b9\u30c8\u30e9\u30af\u30c1\u30e3\u30fc\u30e2\u30c7\u30eb\u5316\u5408\u7269\u306e\u5316\u5b66\u5408\u6210\u3068\u7d76\u5bfe\u7acb\u4f53\u914d\u7f6e"
+        }, 
+        {
+            "StartYear": "2004", 
+            "Grant": "\u30b4\u30de\u306e\u6a5f\u80fd\u6027\u30ea\u30b0\u30ca\u30f3\u306e\u751f\u5408\u6210\u3068\u751f\u5206\u89e3"
+        }
+    ], 
+    "Department_Description": "\u5b9f\u8df5\u80fd\u529b\u304c\u9ad8\u304f,\u4e16\u754c\u306b\u901a\u7528\u3059\u308b\u4eba\u6750\u3092\u990a\u6210\u3059\u308b\u305f\u3081\u306b\u9ad8\u5ea6\u3067\u5e45\u5e83\u3044\u6559\u80b2\u3092\u884c\u3063\u3066\u3044\u307e\u3059.\u672c\u5b66\u90e8\u306b\u306f\u751f\u7269\u751f\u7523\u5b66\u79d1,\u751f\u7269\u8cc7\u6e90\u98df\u7ce7\u5316\u5b66\u79d1\u53ca\u3073\u751f\u547d\u6a5f\u80fd\u79d1\u5b66\u79d1\u304c\u3042\u308a,\u57fa\u790e\u304b\u3089\u5fdc\u7528\u307e\u3067\u306e\u5e45\u5e83\u3044\u30ab\u30ea\u30ad\u30e5\u30e9\u30e0\u304c\u5c11\u4eba\u6570\u6559\u80b2\u306e\u30fb\u30fb\u30fb", 
+    "Address": "\u3012761-0795  \u9999\u5ddd\u770c\u6728\u7530\u90e1\u4e09\u6728\u753a\u5927\u5b57\u6c60\u62382393", 
+    "Department": "\u8fb2\u5b66\u90e8 \u751f\u7269\u8cc7\u6e90\u5229\u7528\u5b66", 
+    "Institution": "\u9999\u5ddd\u5927\u5b66", 
+    "JobTitle": "\u6559\u6388"
+}
