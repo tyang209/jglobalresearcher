@@ -32,8 +32,9 @@ class jglobalresearcher_spider(CrawlSpider):
 		self.moreButtonXpath = "//img[contains(@src,'/common/images/btn_more.png')]"
 		self.nextPagexpath = "//a[contains(@id,'JD_P_NEXT')]/img"
 		allowed_domains = ["http://jglobal.jst.go.jp"]
-		self.start_urls=[#"http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901079241931254&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1",
-						"http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901069127676630&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1"]
+		self.start_urls=["http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901079241931254&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1",
+						"http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901069127676630&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1",
+						"http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901064753496323&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1"]
 		self.JGLOBAL_DOMAIN = "http://jglobal.jst.go.jp"
 		self.translationDict = {u'\u30da\u30fc\u30b8':'Page',
                    u'\u53f7':'Issue',
@@ -47,7 +48,14 @@ class jglobalresearcher_spider(CrawlSpider):
 					u'\u90e8\u7f72\u30fb\u8077\u540d':'Department_Job_Title',
 					u'\u7814\u7a76\u8005\u30ea\u30be\u30eb\u30d0\u30fc':'Resolver',
 					u'NDL\u30b5\u30fc\u30c1' : 'NDL',
-					u'\u7814\u7a76\u8005HP(\u65e5)':'Personal_Home_Page'
+					u'\u7814\u7a76\u8005HP(\u65e5)':'Personal_Home_Page',
+					u'\u66f8\u7c4d':'Books',
+					u'\u767a\u660e\u8005':'Inventor',
+					u'\u51fa\u9858\u4eba/\u7279\u8a31\u6a29\u8005':'Patentee',
+					u'\u516c\u5831\u7a2e\u5225':'Patent_Type',
+					u'\u51fa\u9858\u756a\u53f7':'Patent_Number',
+					u'\u51fa\u9858\u65e5':'Filing_Date',
+					u'\u6982\u8981(\u8acb\u6c42\u98051)':'Patent_Summary'
 						}		
 
 	def initDriver(self,browser='Chrome'):
@@ -141,9 +149,9 @@ class jglobalresearcher_spider(CrawlSpider):
 			mainElem = driver2.find_element(By.ID,'JD_MAIN')
 			mainElemHTML = mainElem.get_attribute('innerHTML')
 			soup = BeautifulSoup(mainElemHTML)
-			for div in soup.html.body.findAll('div',recursive=False):
+			for element in soup.html.body:
 		
-				masterSoup.html.body.append(div)
+				masterSoup.html.body.append(element)
 		
 			if self.nextButtonValid(driver2):
 				nextButton = driver2.find_element_by_xpath(nextButtonXpath)
@@ -156,8 +164,18 @@ class jglobalresearcher_spider(CrawlSpider):
 		driver2.close()
 		return masterSoup
 
+	def isMoreButtonPresent(self,soup):
+		a = soup.find('img',{'src':'/common/images/btn_more.png'})
+		if a is None:
+			return False
+		else:
+			return True
+
 	def returnProperSoup(self,elem):
-		flag = self.is_element_present(elem,self.moreButtonXpath)
+		innerHTML = elem.get_attribute('innerHTML')
+		soup = BeautifulSoup(innerHTML)
+
+		flag = self.isMoreButtonPresent(soup)
 
 		if flag:
 			html = elem.get_attribute('innerHTML')
@@ -166,11 +184,49 @@ class jglobalresearcher_spider(CrawlSpider):
 			soup = self.getAllPagesInnerHTML(link)
 			return soup
 		else:
-			innerHTML = elem.get_attribute('innerHTML')
-			soup = BeautifulSoup(innerHTML)
 			return soup
+	def parseCitedPapersPatent(self,elem):
+		papers = []
+		soup = self.returnProperSoup(elem)
 
-	def scrapePapers(self,mainDict,elem):
+		if len(soup)==0:
+			return papers
+
+
+		#translation of unicode headers into english
+
+		#re pattern for finding JGLOBALIDs
+		for index,div in enumerate(soup.html.body.td.findAll('div',recursive=False)):
+
+		    paperDict = {}
+
+		    link = div.find('a')['href']
+
+		    if link in linkArray:
+		        continue
+		        
+		    linkArray.append(link)
+		    paperDict['PaperLink'] = link
+		    match = jglobal_id_regex.match(link)
+
+		    if match:
+		        paperDict['PaperinJGLOBAL'] = 'Yes'
+		        paperDict['JGLOBALID'] = match.group(1)   
+		        
+		    for p in div.findAll('p'):
+		        if p['class'] ==['txtR', 'light']:
+		            paperDict['Title'] = p.text
+
+		        
+		    for span in div.next_sibling.findAll('span',{'class':'fwB'}):
+		        translatedKey = translationDict[span.text.replace(u'\uff1a','').strip()]
+		        if translatedKey=='Authors':
+		            paperDict[translatedKey] = [author.strip() for author in span.next_sibling.split(u'\u3001')]
+		        else:
+		            paperDict[translatedKey]= span.next_sibling.strip()
+		    papers.append(paperDict)
+    
+	def scrapePapers(self,elem):
 		papers = []
 		soup = self.returnProperSoup(elem)
 
@@ -219,31 +275,59 @@ class jglobalresearcher_spider(CrawlSpider):
 	def is_element_present(self,elem,xpath):
 		try: 
 			newElem = elem.find_element_by_xpath(xpath)
-			if (len(newElem.get_attribute('innerHTML'))==0):
-				return False
-			else:
-				return True
 		except NoSuchElementException: 
 			return False
-
 		return True
 
-	def parseResearchGrants(self,elem):
+	def parseBooksPresentations(self,elem):
+		array = []
+		soup = self.returnProperSoup(elem)
+
+		if len(soup) == 0:
+			return bookArray
+		for div in soup.body.findAll('div',recursive=False):
+			d = {}
+			textArray = div.findAll('p')
+			d['Title'] = textArray[0].text
+			d['Info'] = textArray[1].text
+			array.append(bookDict)
+		return array
+
+
+	def parseCareerTimeline(self,elem,CareerGrantEducation):
 		
 		soup = self.returnProperSoup(elem)
-		grantArray = []
+		array = []
+		if len(soup) == 0:
+			return array
+		if len(soup.findAll('tr'))==0:
+		    array.append(array.soup.text)
+		else:
+			for row in soup.findAll('tr'):
+			    d = {}
+			    if len(row.th.text)>0:
+				    years = row.th.text.split(' - ')
+				    if len(years[0])>0:
+				        d['StartYear']=years[0]
+				    if len(years[1])>0:
+				        d['EndYear'] = years[1]
+			    d[CareerGrantEducation]  = row.td.text
+			    array.append(d)
+		return array
 
-		for row in soup.findAll('tr'):
-		    grantDict = {}
-		    if len(row.th.text)>0:
-			    years = row.th.text.split(' - ')
-			    if len(years[0])>0:
-			        grantDict['StartYear']=years[0]
-			    if len(years[1])>0:
-			        grantDict['EndYear'] = years[1]
-		    grantDict['Grant']  = row.td.text
-		    grantArray.append(grantDict)
-		return grantArray
+	def parseWorks(self,elem):
+		array = []
+		soup = self.returnProperSoup(elem)
+
+		if len(soup) == 0:
+			return array
+
+		for div in soup.td.findAll('div',recursive=False):
+		    textArray = div.find('p')
+		    textArray.text
+
+		    array.append(div.find('p').text)
+		return array
 
 	def parseOtherSourceLinks(self,webelements):
 		array=[]
@@ -271,8 +355,17 @@ class jglobalresearcher_spider(CrawlSpider):
 					linkDict['LinkID'] = match.group(1)
 			array.append(linkDict)
 		return array
+	def parseDegree(self,elem):
+		soup = self.returnProperSoup(elem)
+		array = []
+		if len(soup)==0:
+			return None
+		for line in soup.findAll('br'):
+			
+			array.append(line.previous_sibling)
+		return array
 
-	def parseResearchTags(self,elem):
+	def parseAffiliationTags(self,elem):
 		soup = self.returnProperSoup(elem)
 		array = []
 		if len(soup)==0:
@@ -281,6 +374,28 @@ class jglobalresearcher_spider(CrawlSpider):
 			if len(anchor.findChildren())==0:
 				array.append(anchor.text)
 		return array
+
+	def parsePatents(self,elem):
+		soup = self.returnProperSoup(elem)
+		array = []
+		if len(soup)==0:
+			return None
+
+		for div in soup.findAll('div'):
+		    patent = {}
+		    for p in div.findAll('p'):
+		        if p['class'] in (['light'],['txtR', 'light']):
+		            patent['Title'] = p.text
+		            patent['Link'] = p.find('a')['href']
+		        
+		        elif p['class'] in [['light','mB10']]:
+		            for span in p.findAll('span',{'class':'fwB'}):
+		            	header=span.text 
+		            	header = header.replace(u'\uff1a','')           
+		                patent[self.translation[header]]=[inventor.strip() for inventor in span.next_sibling.split(',')]
+			Array.append(patent)
+		return array
+
 
 
 	def parse(self, response):
@@ -304,14 +419,34 @@ class jglobalresearcher_spider(CrawlSpider):
 
 		dept_affil_div = driver.find_element(By.ID,'JD_CS_2')
 
+		japanese_name_elem = driver.find_element(By.ID,'JD_NMRJ')
+		doubleName_elem = driver.find_element(By.ID,'JD_NM')
 		jobTitle_div = driver.find_element(By.ID,'JD_CS_3')
 		other_affil = driver.find_element(By.ID,'JD_CS_4')
 		field_of_study = driver.find_element(By.ID,'JD_RFD_J')
 		other_source_links = driver.find_elements_by_xpath("//a[contains(@class,'mR10')]")
 		research_keywords = driver.find_element(By.ID,'JD_RFKW_2')
 		grantResearch = driver.find_element(By.ID,'JD_THM')
-		miscElem = driver.find_element(By.ID,'JD_PA')
-		papersElem = driver.find_element(By.ID,'JD_AR')
+		miscElem = driver.find_element(By.ID,'JD_AR')
+		papersElem = driver.find_element(By.ID,'JD_PA')
+		booksElem = driver.find_element(By.ID,'JD_BKNAM')
+		patentsElem = driver.find_element(By.ID,'JD_PT')		
+		presentationsElem = driver.find_element(By.ID,'JD_PR')		
+		workElem = driver.find_element(By.ID,'JD_OA')	
+		educationElem = driver.find_element(By.ID,'JD_GS')	
+		degreeElem = driver.find_element(By.ID,'JD_AC')	
+		careerElem = driver.find_element(By.ID,'JD_RC')	
+		committeeElem = driver.find_element(By.ID,'JD_BJH')	
+		societiesElem = driver.find_element(By.ID,'JD_SO')	
+		citedPapersElem = driver.find_element(By.ID,'JD_EA')
+		citedPatentsElem = driver.find_element(By.ID,'JD_EP')
+
+		mainDict['Name_Japanese'] = japanese_name_elem.get_attribute('textContent')
+
+		names = doubleName_elem.get_attribute('textContent').split('|')
+		mainDict['Name_Katakana'] = names[0]
+		mainDict['Name_English'] = names[1]
+
 
 		mainDict['Other_Source_Links'] = self.parseOtherSourceLinks(other_source_links)
 
@@ -323,12 +458,23 @@ class jglobalresearcher_spider(CrawlSpider):
 		mainDict['JobTitle'] = jobTitle_div.text
 		
 
-		mainDict['Field_Of_Study'] = self.parseResearchTags(field_of_study)
-		mainDict['ResearchKeywords'] = self.parseResearchTags(research_keywords)
-		mainDict['ResearchGrants'] = self.parseResearchGrants(grantResearch)		
-		mainDict['Papers'] = self.scrapePapers(mainDict,papersElem)
-		mainDict['Misc'] = self.scrapePapers(mainDict,miscElem)
-		print 'done with papers'
+		mainDict['Field_Of_Study'] = self.parseAffiliationTags(field_of_study)
+		mainDict['ResearchKeywords'] = self.parseAffiliationTags(research_keywords)
+		mainDict['ResearchGrants'] = self.parseCareerTimeline(grantResearch,'Grants')		
+		mainDict['Papers'] = self.scrapePapers(papersElem)
+		mainDict['Misc'] = self.scrapePapers(miscElem)
+		mainDict['Books'] = self.parseBooksPresentations(booksElem)
+		mainDict['Patents'] = self.parsePatents(patentsElem)
+		mainDict['Presentations'] = self.parseBooksPresentations(presentationsElem)
+		mainDict['Works'] = self.parseWorks(workElem)
+		mainDict['ResearchGrants'] = self.parseCareerTimeline(educationElem,'Institution_Name')	
+		mainDict['Degrees'] = self.parseDegree(degreeElem)
+		mainDict['Career'] = self.parseCareerTimeline(careerElem,'Career_Title')	
+		mainDict['Committees'] = self.parseCareerTimeline(committeeElem,'Committee_Title')	
+		mainDict['Societies_Affiliaitons'] = self.parseAffiliationTags(societiesElem)
+		mainDict['Cited_Papers'] = self.parseCitedPapersPatent(citedPapersElem)
+		mainDict['Cited_Patents'] = self.parseCitedPapersPatent(citedPatentsElem)
+
 		with codecs.open('export2.json','a+','utf-8') as f:
 
 		    json.dump(mainDict, f,indent=4)
