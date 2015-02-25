@@ -12,6 +12,6 @@ BOT_NAME = 'jglobalresearcher'
 
 SPIDER_MODULES = ['jglobalresearcher.spiders']
 NEWSPIDER_MODULE = 'jglobalresearcher.spiders'
-CONCURRENT_REQUESTS = 1
+# CONCURRENT_REQUESTS = 1
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'jglobalresearcher (+http://www.yourdomain.com)'

@@ -28,14 +28,7 @@ class jglobalresearcher_spider(CrawlSpider):
 	def __init__(self,name=None,**kwargs):
 		super(jglobalresearcher_spider, self).__init__(name, **kwargs)
 
-		if system() == 'Darwin':
-			self.driver = webdriver.Chrome("./chromedriver")
-			# self.driver = webdriver.Firefox()
-			print 'mac'
-		elif system() =='Windows':
-			self.driver = webdriver.Chrome("chromedriver.exe")
-			# self.driver = webdriver.Firefox()
-			print 'windows!'
+
 		self.moreButtonXpath = "//img[contains(@src,'/common/images/btn_more.png')]"
 		self.nextPagexpath = "//a[contains(@id,'JD_P_NEXT')]/img"
 		allowed_domains = ["http://jglobal.jst.go.jp"]
@@ -57,7 +50,16 @@ class jglobalresearcher_spider(CrawlSpider):
 					u'\u7814\u7a76\u8005HP(\u65e5)':'Personal_Home_Page'
 						}		
 
-
+	def initDriver(self,browser='Chrome'):
+		if system() == 'Darwin':
+			driver = webdriver.Chrome("./chromedriver")
+			# self.driver = webdriver.Firefox()
+			print 'mac'
+		elif system() =='Windows':
+			driver = webdriver.Chrome("chromedriver.exe")
+			# self.driver = webdriver.Firefox()
+			print 'windows!'
+		return driver
 	
 	def returnJGlobalID(self,url):
 		#return id after GLOBAL_ID
@@ -119,16 +121,8 @@ class jglobalresearcher_spider(CrawlSpider):
 
 	def getAllPagesInnerHTML(self,link):
 
-		nextButtonXpath = "//img[contains(@src,'/common/images/pager_arrow_next.png')]"		
-		if system() == 'Darwin':
-			driver2 = webdriver.Chrome("./chromedriver")
-			# driver2 = webdriver.Firefox()
-			print 'mac'
-		elif system() =='Windows':
-			driver2 = webdriver.Chrome("chromedriver.exe")
-			# driver2 = webdriver.Firefox()
-			print 'windows!'
-		print link
+		nextButtonXpath = "//img[contains(@src,'/common/images/pager_arrow_next.png')]"
+		driver2=self.initDriver()
 		driver2.get(link)
 		driver2.set_window_size(1920, 1000)
 		masterSoup = BeautifulSoup('<html><body><body></html>')
@@ -286,8 +280,9 @@ class jglobalresearcher_spider(CrawlSpider):
 
 	def parse(self, response):
 		print response.url
-		self.driver.get(response.url)
-		self.driver.set_window_size(1920, 1000)
+		driver = self.initDriver()
+		driver.get(response.url)
+		driver.set_window_size(1920, 1000)
 		item = JglobalresearcherItem()
 
 		mainDict = {}
@@ -298,24 +293,24 @@ class jglobalresearcher_spider(CrawlSpider):
 		booksMoreButtonXP = "//td[contains(@id,'JD_BKNAM')]//img[contains(@src,'/common/images/btn_more.png')]"
 
 
-		WebDriverWait(self.driver,60).until(
+		WebDriverWait(driver,60).until(
 				lambda x: len(x.find_element(By.ID,'JD_NMRJ').text)>0
 			)
 
-		dept_affil_div = self.driver.find_element(By.ID,'JD_CS_2')
-		jobTitle_div = self.driver.find_element(By.ID,'JD_CS_3')
-		other_affil = self.driver.find_element(By.ID,'JD_CS_4')
-		field_of_study = self.driver.find_element(By.ID,'JD_RFD_J')
-		other_source_links = self.driver.find_elements_by_xpath("//a[contains(@class,'mR10')]")
-		research_keywords = self.driver.find_element(By.ID,'JD_RFKW_2')
-		grantResearch = self.driver.find_element(By.ID,'JD_THM')
-		miscElem = self.driver.find_element(By.ID,'JD_PA')
-		papersElem = self.driver.find_element(By.ID,'JD_AR')
+		dept_affil_div = driver.find_element(By.ID,'JD_CS_2')
+		jobTitle_div = driver.find_element(By.ID,'JD_CS_3')
+		other_affil = driver.find_element(By.ID,'JD_CS_4')
+		field_of_study = driver.find_element(By.ID,'JD_RFD_J')
+		other_source_links = driver.find_elements_by_xpath("//a[contains(@class,'mR10')]")
+		research_keywords = driver.find_element(By.ID,'JD_RFKW_2')
+		grantResearch = driver.find_element(By.ID,'JD_THM')
+		miscElem = driver.find_element(By.ID,'JD_PA')
+		papersElem = driver.find_element(By.ID,'JD_AR')
 
 		mainDict['Other_Source_Links'] = self.parseOtherSourceLinks(other_source_links)
 		# if not self.is_element_present(papersMoreButtonXP):
 		# 	xpath = "//td[contains(@id,'JD_PA')]"
-		# 	elem = self.driver.find_element_by_xpath(xpath)
+		# 	elem = driver.find_element_by_xpath(xpath)
 		# 	papersElem = elem.get_attribute('innerHTML')
 		# if not self.is_element_present(miscMoreButtonXP): 
 
@@ -342,5 +337,5 @@ class jglobalresearcher_spider(CrawlSpider):
 			# 		f.write( '%s:%s\n' %(k.decode('utf-8'),v.decode('utf-8')))
 		# item['Dict'] = mainDict
 
-		# self.driver.close()
+		driver.close()
 		return item
