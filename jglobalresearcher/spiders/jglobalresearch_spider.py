@@ -39,7 +39,8 @@ class jglobalresearcher_spider(CrawlSpider):
 		self.moreButtonXpath = "//img[contains(@src,'/common/images/btn_more.png')]"
 		self.nextPagexpath = "//a[contains(@id,'JD_P_NEXT')]/img"
 		allowed_domains = ["http://jglobal.jst.go.jp"]
-		self.start_urls=["http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901079241931254&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1"]
+		self.start_urls=["http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901079241931254&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1",
+						"http://jglobal.jst.go.jp/detail.php?JGLOBAL_ID=200901069127676630&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1"]
 		self.JGLOBAL_DOMAIN = "http://jglobal.jst.go.jp"
 		self.translationDict = {u'\u30da\u30fc\u30b8':'Page',
                    u'\u53f7':'Issue',
@@ -330,7 +331,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		mainDict['Papers'] = self.scrapePapers(mainDict,miscElem)
 		mainDict['Misc'] = self.scrapePapers(mainDict,miscElem)
 		print 'done with papers'
-		with codecs.open('export.json','w+','utf-8') as f:
+		with codecs.open('export.json','a+','utf-8') as f:
 
 		    json.dump(mainDict, f,indent=4)
 			# for k,v in mainDict.iteritems():
@@ -341,5 +342,5 @@ class jglobalresearcher_spider(CrawlSpider):
 			# 		f.write( '%s:%s\n' %(k.decode('utf-8'),v.decode('utf-8')))
 		# item['Dict'] = mainDict
 
-		self.driver.close()
+		# self.driver.close()
 		return item
