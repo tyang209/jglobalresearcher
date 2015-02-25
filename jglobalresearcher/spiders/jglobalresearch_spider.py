@@ -290,7 +290,7 @@ class jglobalresearcher_spider(CrawlSpider):
 			textArray = div.findAll('p')
 			d['Title'] = textArray[0].text
 			d['Info'] = textArray[1].text
-			array.append(bookDict)
+			array.append(d)
 		return array
 
 
