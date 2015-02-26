@@ -1,4 +1,6 @@
 {
+    "Name_Katakana": "\u30bf\u30ab\u30e9 \u30ab\u30aa\u30eb\u00a0", 
+    "Name_Japanese": "\u5bf6 \u99a8", 
     "Department_Affiliation": [
         [
             "Department", 
@@ -33,6 +35,7 @@
             "\u5927\u5b66\u9662\u5de5\u5b66\u7814\u7a76\u79d1 \u90fd\u5e02\u74b0\u5883\u5de5\u5b66\u5c02\u653b \u6559\u6388,\u6559\u6388"
         ]
     ], 
+    "Name_English": "\u00a0TAKARA Kaoru", 
     "JobTitle": "\u6559\u6388", 
     "Other_Source_Links": [
         {
@@ -58,106 +61,103 @@
             "Link": "http://iss.ndl.go.jp/api/openurl?au=%E5%AF%B6%E9%A6%A8&sign=8d02a8d24121cf0fa75b6f5ceaf8baeb"
         }
     ], 
+    "Cited_Papers": [], 
     "JGLOBALID": "200901079241931254", 
-    "ResearchGrants": [], 
-    "ResearchKeywords": [
-        "\u6c34\u6587\u5b66\u53ca\u3073\u6c34\u8cc7\u6e90\u5de5\u5b66", 
-        "\u8c6a\u96e8\u53ca\u3073\u6d2a\u6c34\u707d\u5bb3", 
-        "\u30ea\u30e2\u30fc\u30c8\u30bb\u30f3\u30b7\u30f3\u30b0\u306b\u3088\u308b\u6c34\u74b0\u5883\u89e3\u6790"
-    ]
-}{
-    "Department_Affiliation": [
-        [
-            "Department", 
-            "\u9632\u707d\u7814\u7a76\u6240 \u793e\u4f1a\u9632\u707d\u7814\u7a76\u90e8\u9580"
-        ], 
-        [
-            "Institution_link", 
-            "/detail.php?JGLOBAL_ID=200905052016495584&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1"
-        ], 
-        [
-            "Institution", 
-            "\u4eac\u90fd\u5927\u5b66"
-        ], 
-        [
-            "Address", 
-            "\u4eac\u90fd\u5e9c"
-        ], 
-        [
-            "OtherInstitution", 
-            "\u4eac\u90fd\u5927\u5b66"
-        ], 
-        [
-            "OtherAddress", 
-            "\u3012606-8501  \u4eac\u90fd\u5e9c\u4eac\u90fd\u5e02\u5de6\u4eac\u533a\u5409\u7530\u672c\u753a"
-        ], 
-        [
-            "OtherInstitution_link", 
-            "/detail.php?JGLOBAL_ID=200905049194525089&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1"
-        ], 
-        [
-            "OtherDepartment_Job_Title", 
-            "\u5927\u5b66\u9662\u5de5\u5b66\u7814\u7a76\u79d1 \u90fd\u5e02\u74b0\u5883\u5de5\u5b66\u5c02\u653b \u6559\u6388,\u6559\u6388"
-        ]
-    ], 
-    "JobTitle": "\u6559\u6388", 
-    "Other_Source_Links": [
+    "Presentations": [], 
+    "Books": [
         {
-            "Source": "Personal_Home_Page", 
-            "Link": "http://www.dpri.kyoto-u.ac.jp&sign=5f644f83ad69807bff908a7262b0c4d9"
+            "Info": "Proc. 6th Congress of APD-IAHR,1/,413-420\u00a01988\u5e74", 
+            "Title": "Optimization of Operation Rules for Water Supply Reservoirs and Coping with Droughts"
         }, 
         {
-            "Source": "\u7814\u7a76\u8005HP(\u82f1)", 
-            "Link": "http://flood.dpri.kyoto-u.ac.jp/takara/&sign=6a2e3f0ff383d3b99e20001606553d49"
+            "Info": "Proc. of the Fifth International Confrence on Urban Storm Drainage, Suita, Osaka, Japan,2/,587-592\u00a01990\u5e74", 
+            "Title": "Evaluation of Hydrologic Frequency Analysis Models Based on Quantile Variability Obtained by Resampling"
         }, 
         {
-            "LinkID": "0010751", 
-            "Link": "http://researchmap.jp/read0010751/?lang=japanese&sign=16a6433c9e2a0018f8843d76840bd2c1", 
-            "Source": "researchmap"
+            "Info": "Proc. of the Workshop on the Effects of Global Climate Change on Hydrology and Water Resources at the Catchment Scale,309-318\u00a01992\u5e74", 
+            "Title": "Estimation of Impact on Water Resources System by Global Climate Change"
         }, 
         {
-            "Source": "Resolver", 
-            "Link": "http://rns.nii.ac.jp/services/redirect/?source=kaken&target=resolver&id=80144327&sign=df7ccd713b0bc839d2a11eb04ffd6225", 
-            "LinkID": "80144327"
+            "Info": "The First ADEOS Symposium/Workshop, Kyoto, Japan, Organized by NASDA, EA, and MITI,2/,513-516\u00a01994\u5e74", 
+            "Title": "Accuracy Assessment of Catchment Surface Classification Based on Remotely Sensed Imageries with Various Spatial Resolutions"
         }, 
         {
-            "Source": "NDL", 
-            "Link": "http://iss.ndl.go.jp/api/openurl?au=%E5%AF%B6%E9%A6%A8&sign=8d02a8d24121cf0fa75b6f5ceaf8baeb"
+            "Info": "Proc. of the Joint Meeting on Statistical Sciences,/,67-76\u00a01994\u5e74", 
+            "Title": "On the Future Direction of Hydrologic Frequency Analysis -Interdisciplinary Approach of Statistics, Hydrology and Meteorology-"
+        }, 
+        {
+            "Info": "Proc. of Symp. on GEWEX in Asia-GAME,/,2,10-2,13\u00a01994\u5e74", 
+            "Title": "Extraction of Catchment Physical Characteristics by Use of Synthetic Aperture Radar for Distributed Hydrologic Modeling"
+        }, 
+        {
+            "Info": "Seminar on Hydrologic Database Management Systems,/,55-96\u00a01995\u5e74", 
+            "Title": "Hydro-Geographic Information Systems and Database Management Systems in River Basins"
+        }, 
+        {
+            "Info": "Proc. of Int'l Symp. on Comparative Research on Hydrology and Water Resources in Sontheast Asia and the Pacific, Yogyakarta, Indonesia, Indonesian National Committee for IHP.,/,67-76\u00a01996\u5e74", 
+            "Title": "Frequency Analysis Introducing Probable Maximum Hydrologic Events-Preliminary studies in Japan and in Indonesia-"
+        }, 
+        {
+            "Info": "Proc. of International Conference on Water Resources and Environment Research : Towards the 21st Century, Kyoto, Japan,1/,435-442\u00a01996\u5e74", 
+            "Title": "Possibility and Necessity of Paradigm Shift in Hydrologic Frquency Analysis"
+        }, 
+        {
+            "Info": "The Second ADEOS Symposium/Workshop, NASDA, EA and MITI, PACIFICO YOKOHAMA Conf. Center, Yokohama, Japan,/,674-675\u00a01997\u5e74", 
+            "Title": "Estimation of Aerodynamic Roughness Parameter Using Synthetic Aperture Radar data"
+        }, 
+        {
+            "Info": "Asakura-Shoten,/,228-234\u00a01997\u5e74", 
+            "Title": "Handbook of Hydrology and Water Resources"
+        }, 
+        {
+            "Info": "Workshop on Remote Sensing of Hydrological Processes and Applications,/,149-156\u00a01997\u5e74", 
+            "Title": "Kinematic Wave Runoff Model Using Landsat TM Image and 50-m DEM"
+        }, 
+        {
+            "Info": "\u5ca9\u6ce2\u8b1b\u5ea7\u5730\u7403\u74b0\u5883\u5b66,\u5ca9\u6ce2\u66f8\u5e97,7/,40-69\u00a01998\u5e74", 
+            "Title": "\u6c34\u74b0\u5883\u3068\u6d41\u57df\u74b0\u5883"
+        }, 
+        {
+            "Info": "\u6c34\u6587\u904e\u7a0b\u306e\u30ea\u30e2\u30fc\u30c8\u30bb\u30f3\u30b7\u30f3\u30b0\u3068\u305d\u306e\u5fdc\u7528\u306b\u95a2\u3059\u308b\u30ef\u30fc\u30af\u30b7\u30e7\u30c3\u30d7,/,149-156\u00a01998\u5e74", 
+            "Title": "Landsat TM\u753b\u50cf\u3068DEM\u3092\u7528\u3044\u305fKinematic Wave\u6d2a\u6c34\u6d41\u51fa\u30e2\u30c7\u30eb"
+        }, 
+        {
+            "Info": "Proc\u30fbof Symp on Japan-Indonesia IDNDR Project-Volcanology, Techtonics, Flood and Sediment Hazards, Bandung, Indonena,/,373-384\u00a01998\u5e74", 
+            "Title": "A Distributed Model for Flood Runoff and Sediment Yield Based on Remote Sensing and GIS"
+        }, 
+        {
+            "Info": "\u6c34\u6587\u904e\u7a0b\u306e\u30ea\u30e2\u30fc\u30c8\u30bb\u30f3\u30b7\u30f3\u30b0\u3068\u305d\u306e\u5fdc\u7528\u306b\u95a2\u3059\u308b\u30ef\u30fc\u30af\u30b7\u30e7\u30c3\u30d7,/,123-135\u00a01998\u5e74", 
+            "Title": "\u30ea\u30e2\u30fc\u30c8\u30bb\u30f3\u30b7\u30f3\u30b0\u753b\u50cf\u306e\u7a7a\u9593\u5206\u89e3\u80fd\u304cNDVI\u53ca\u3073\u305d\u308c\u306b\u57fa\u3065\u304f\u84b8\u767a\u6563\u63a8\u5b9a\u306b\u53ca\u307c\u3059\u5f71\u97ff"
+        }, 
+        {
+            "Info": "\u671d\u5009\u66f8\u5e97,/,57-61,68-71,318-321,645-647\u00a02001\u5e74", 
+            "Title": "\u9632\u707d\u5b66\u30cf\u30f3\u30c9\u30d6\u30c3\u30af"
+        }, 
+        {
+            "Info": "\u671d\u5009\u66f8\u5e97\u00a02001\u5e74", 
+            "Title": "\u9632\u707d\u30cf\u30f3\u30c9\u30d6\u30c3\u30af\u30011.4(1)\u7570\u5e38\u5c11\u96e8\u306e\u4e88\u6e2c "
+        }, 
+        {
+            "Info": "\u671d\u5009\u66f8\u5e97 pp.645-647\u00a02001\u5e74", 
+            "Title": "\u9632\u707d\u30cf\u30f3\u30c9\u30d6\u30c3\u30af "
+        }, 
+        {
+            "Info": "\u571f\u6728\u5b66\u4f1a\u3001\u4e38\u5584(\u682a) \u7b2c1\u7de8\u4f8b\u984c1-1,1-2\u00a02002\u5e74", 
+            "Title": "\u6c34\u7406\u516c\u5f0f\u96c6\u4f8b\u984c\u30d7\u30ed\u30b0\u30e9\u30e0\u96c6(\u5e73\u621013\u5e74\u5ea6\u7248) "
+        }, 
+        {
+            "Info": "Proc. International Symposium on Flood Forecasting and Management with GIS and Remote Sensing (FM2S), Guangzhou and Three Gorges, China, Nov. 6-12, 2004, pp.1-256\u00a02004\u5e74", 
+            "Title": "FM2S 2004: Flood Forecasting and Management with GIS and Remote Sensing (Eds.)"
+        }, 
+        {
+            "Info": "\u5efa\u7bc9\u5927\u767e\u79d1\u4e8b\u5178,\u671d\u5009\u66f8\u5e97 ISBN 978-4-254-26633-7\u00a02008\u5e74", 
+            "Title": "1-38 \u8a18\u9332\u7834\u308a\u306e\u5927\u96e8\u3068\u305d\u306e\u78ba\u7387 "
         }
     ], 
-    "JGLOBALID": "200901079241931254", 
-    "ResearchGrants": [
-        {
-            "Grant": "\u8c6a\u96e8\u30fb\u6d2a\u6c34\u30fb\u6e07\u6c34\u306e\u4e88\u6e2c\u3068\u9632\u707d"
-        }, 
-        {
-            "Grant": "\u5730\u7403\u89b3\u6e2c\u30c7\u30fc\u30bf\u306e\u6c34\u6587\u74b0\u5883\u89e3\u6790\u3078\u306e\u5fdc\u7528"
-        }, 
-        {
-            "Grant": "\u6c34\u5de5\u60c5\u5831\u5b66\u306b\u95a2\u3059\u308b\u7814\u7a76"
-        }, 
-        {
-            "EndYear": "2004", 
-            "StartYear": "2002", 
-            "Grant": "\u6c34\u707d\u5bb3\u306e\u76e3\u8996\u30fb\u4e88\u6e2c\u30fb\u8efd\u6e1b\u3078\u306e\u8ca2\u732e"
-        }, 
-        {
-            "EndYear": "2005", 
-            "StartYear": "2001", 
-            "Grant": "\u793e\u4f1a\u5909\u52d5\u3068\u6c34\u5faa\u74b0\u306e\u76f8\u4e92\u4f5c\u7528\u8a55\u4fa1\u30e2\u30c7\u30eb\u306e\u69cb\u7bc9"
-        }, 
-        {
-            "EndYear": "2009", 
-            "StartYear": "2007", 
-            "Grant": "\u571f\u7802\u707d\u5bb3\u7b49\u306e\u65e9\u671f\u8b66\u6212\u6280\u8853\u306e\u30a2\u30b8\u30a2\u5171\u540c\u958b\u767a"
-        }
-    ], 
-    "ResearchKeywords": [
-        "\u6c34\u6587\u5b66\u53ca\u3073\u6c34\u8cc7\u6e90\u5de5\u5b66", 
-        "\u8c6a\u96e8\u53ca\u3073\u6d2a\u6c34\u707d\u5bb3", 
-        "\u30ea\u30e2\u30fc\u30c8\u30bb\u30f3\u30b7\u30f3\u30b0\u306b\u3088\u308b\u6c34\u74b0\u5883\u89e3\u6790"
-    ]
+    "Cited_Patents": []
 }{
+    "Name_Katakana": "\u30b5\u30ef\u30d9 \u30ce\u30ea\u30aa\u00a0", 
+    "Name_Japanese": "\u6fa4\u9089 \u7d00\u751f", 
     "Department_Affiliation": [
         [
             "Department", 
@@ -200,6 +200,7 @@
             "\u5927\u5b66\u9662\u7d4c\u6e08\u5b66\u7814\u7a76\u79d1 \u6559\u6388"
         ]
     ], 
+    "Name_English": "\u00a0SAWABE Norio", 
     "JobTitle": "\u6559\u6388", 
     "Other_Source_Links": [
         {
@@ -221,142 +222,329 @@
             "Link": "http://iss.ndl.go.jp/api/openurl?au=%E6%BE%A4%E9%82%89%E7%B4%80%E7%94%9F&sign=8a35de4422359a6c92ecf75ab22a8615"
         }
     ], 
+    "Cited_Papers": [], 
     "JGLOBALID": "200901069127676630", 
-    "ResearchGrants": [
+    "Presentations": [
         {
-            "EndYear": "2014", 
-            "StartYear": "2012", 
-            "Grant": "\u81e8\u5e8a\u4f1a\u8a08\u5b66\u306e\u69cb\u60f3:\u7406\u8ad6\u7684\u77e5\u8b58\u3068\u5b9f\u8df5\u7684\u77e5\u6075\u3092\u7d50\u3073\u3064\u3051\u308b\u4f1a\u8a08\u5c02\u9580\u77e5\u8b58\u306e\u5275\u9020"
+            "Info": "(\u9032\u5316\u7d4c\u6e08\u5b66\u4f1a\u30aa\u30fc\u30bf\u30e0\u30b3\u30f3\u30d5\u30a1\u30ec\u30f3\u30b9)", 
+            "Title": "\u4f1a\u8a08\u3068\u3044\u3046\u9000\u884c\u7684\u9032\u5316"
         }, 
         {
-            "EndYear": "2014", 
-            "StartYear": "2012", 
-            "Grant": "\u65e5\u672c\u4f01\u696d\u306e\u30de\u30cd\u30b8\u30e1\u30f3\u30c8\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb\u306b\u95a2\u3059\u308b\u7814\u7a76:\u7d4c\u9a13\u7684\u7814\u7a76\u306b\u57fa\u3065\u304f\u7406\u8ad6\u306e\u69cb\u7bc9"
+            "Info": "(\u8a3c\u5238\u7d4c\u6e08\u5b66\u4f1a\u95a2\u897f\u90e8\u4f1a 1994/12/17)", 
+            "Title": "BIS\u898f\u5236\u306e\u6210\u7acb\u3068\u542b\u307f\u76ca\u306e\u4f1a\u8a08"
         }, 
         {
-            "EndYear": "2011", 
-            "StartYear": "2009", 
-            "Grant": "\u3082\u306e\u3065\u304f\u308a\u4f01\u696d\u306e\u751f\u7523\u7ba1\u7406\u3068\u6226\u7565\u7ba1\u7406\u4f1a\u8a08\u3068\u306e\u878d\u5408\u306b\u95a2\u3059\u308b\u7406\u8ad6\u7684\u30fb\u7d4c\u9a13\u7684\u7814\u7a76"
+            "Info": "(\u7ba1\u7406\u4f1a\u8a08\u7814\u7a76\u5b66\u4f1a\u5168\u56fd\u5927\u4f1a 1995/11/09)", 
+            "Title": "\u30c7\u30ea\u30d0\u30c6\u30a3\u30d6\u898f\u5236\u306b\u95a2\u3059\u308b\u4e00\u8a66\u8ad6 -\u91d1\u878d\u81ea\u7531\u5316\u3068\u30ea\u30ec\u30ae\u30e5\u30ec\u30fc\u30b7\u30e7\u30f3\u306b\u304a\u3051\u308b\u4f1a\u8a08"
         }, 
         {
-            "EndYear": "2011", 
-            "StartYear": "2009", 
-            "Grant": "\u5883\u754c\u306e\u30de\u30cd\u30b8\u30e1\u30f3\u30c8\u3068\u65e5\u672c\u4f01\u696d\u306e\u30a4\u30ce\u30d9\u30fc\u30b7\u30e7\u30f3"
+            "Info": "(\u8a3c\u5238\u7d4c\u6e08\u5b66\u4f1a\u95a2\u897f\u90e8\u4f1a 1996/10)", 
+            "Title": "\u91d1\u878d\u5546\u54c1\u306e\u4f1a\u8a08\u3068\u5185\u90e8\u5831\u544a\u76ee\u7684\u306e\u958b\u793a"
         }, 
         {
-            "EndYear": "2011", 
-            "StartYear": "2009", 
-            "Grant": "\u7ba1\u7406\u4f1a\u8a08\u3068\u7d4c\u55b6\u7406\u5ff5\u306e\u95a2\u4fc2\u306b\u95a2\u3059\u308b\u7406\u8ad6\u7684\u30fb\u7d4c\u9a13\u7684\u7814\u7a76"
+            "Info": "(The Korea International Economic Association Winter Conference 1997/11/21)", 
+            "Title": "Japanese Financial Re-regulation in the Geopolitics: Failure of New Capital Adequacy Regulation"
         }, 
         {
-            "EndYear": "2008", 
-            "StartYear": "2006", 
-            "Grant": "\u7ba1\u7406\u4f1a\u8a08\u30b7\u30b9\u30c6\u30e0\u3068\u4f01\u696d\u7d44\u7e54\u306e\u5171\u9032\u5316\u306b\u95a2\u3059\u308b\u7406\u8ad6\u7684\u30fb\u5b9f\u8a3c\u7684\u7814\u7a76"
+            "Info": "(\u7b2c1\u56de\u56fd\u969b\u8ab2\u7a0e\u4eac\u90fd\u30d5\u30a9\u30fc\u30e9\u30e0 1999/01/29)", 
+            "Title": "\u91d1\u878d\u5546\u54c1\u306e\u4f1a\u8a08\u57fa\u6e96\u8a2d\u5b9a\u3092\u3081\u3050\u308b\u8af8\u8ab2\u984c:\u7d4c\u55b6\u8005\u306e\u610f\u56f3\u3068\u4f1a\u8a08\u57fa\u6e96"
         }, 
         {
-            "EndYear": "2008", 
-            "StartYear": "2006", 
-            "Grant": "\u7ba1\u7406\u4f1a\u8a08\u3068\u30ea\u30b9\u30af\u30de\u30cd\u30b8\u30e1\u30f3\u30c8\u306e\u7d71\u5408\u306b\u95a2\u3059\u308b\u7d4c\u9a13\u7684\u7814\u7a76"
+            "Info": "(\u65e5\u672c\u4f1a\u8a08\u7814\u7a76\u5b66\u4f1a\u4e5d\u5dde\u90e8\u4f1a 2001/03/18)", 
+            "Title": "\u96e2\u8131\u30fb\u767a\u8a00\u30fb\u30ed\u30fc\u30e4\u30eb\u30c6\u30a3\u3068\u30c7\u30a3\u30b9\u30af\u30ed\u30fc\u30b8\u30e3\u30fc -\u9280\u884c\u30c7\u30a3\u30b9\u30af\u30ed\u30fc\u30b8\u30e3\u30fc\u5236\u5ea6\u306e\u30a4\u30f3\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3-"
         }, 
         {
-            "EndYear": "2007", 
-            "StartYear": "2006", 
-            "Grant": "\u30aa\u30fc\u30d7\u30f3\u30fb\u30a4\u30ce\u30d9\u30fc\u30b7\u30e7\u30f3\u306e\u6226\u7565\u3068\u30de\u30cd\u30b8\u30e1\u30f3\u30c8\u30fb\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb\u306b\u95a2\u3059\u308b\u7d4c\u6e08\u5206\u6790"
+            "Info": "(Interdisciplinary Perspectives in Accounting Conference 2003/07/14)", 
+            "Title": "Normative Consequences of Efficient Capital Market Research"
         }, 
         {
-            "EndYear": "2007", 
-            "StartYear": "2005", 
-            "Grant": "\u6b21\u4e16\u4ee3\u7ba1\u7406\u4f1a\u8a08\u306e\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\u53ca\u3073\u305d\u306e\u30b0\u30ed\u30fc\u30d0\u30eb\u9069\u7528\u306e\u7406\u8ad6\u7684\u7814\u7a76"
+            "Info": "(\u9032\u5316\u7d4c\u6e08\u5b66\u4f1a\u30aa\u30fc\u30bf\u30e0\u30b3\u30f3\u30d5\u30a1\u30ec\u30f3\u30b9 2003/11/01)", 
+            "Title": "\u4f1a\u8a08\u5236\u5ea6\u3068\u5e02\u5834\u306e\u5171\u9032\u5316"
         }, 
         {
-            "EndYear": "2006", 
-            "StartYear": "2005", 
-            "Grant": "\u6226\u7565\u7684\u63d0\u643a\u306b\u304a\u3044\u3066\u7d44\u7e54\u9593\u5b66\u7fd2\u3092\u4fc3\u9032\u3059\u308b\u793e\u4f1a\u30cd\u30c3\u30c8\u30ef\u30fc\u30af\u8cc7\u672c\u306e\u69cb\u9020\u7279\u6027\u306e\u7dcf\u5408\u7814\u7a76"
+            "Info": "(Asian Pacific Interdisciplinary Research in Accounting Conference 2004/07/05)", 
+            "Title": "Normative Consequences of Efficient Capital Market Research"
         }, 
         {
-            "EndYear": "2005", 
-            "StartYear": "2003", 
-            "Grant": "\u56fd\u969b\u4f1a\u8a08\u57fa\u6e96\u8a2d\u5b9a\u904e\u7a0b\u306b\u304a\u3051\u308b\u53c2\u52a0\u69cb\u9020\u306e\u5909\u5316\u3068\u4f1a\u8a08\u7406\u8ad6\u306e\u5f79\u5272\u306b\u95a2\u3059\u308b\u7814\u7a76"
+            "Info": "(European Accounting Association Annual Congress 2006/03/23)", 
+            "Title": "Books or Articles: Pastured or Cultured Pelicans"
         }, 
         {
-            "EndYear": "2000", 
-            "StartYear": "1999", 
-            "Grant": "\u65b0\u3057\u3044\u91d1\u878d\u30b7\u30b9\u30c6\u30e0\u306eSustainability\u306b\u95a2\u3059\u308b\u5236\u5ea6\u5206\u6790"
+            "Info": "(Global Management Accounting Research Symposium 2008/06/13)", 
+            "Title": "Studying the dialectics between and within management philosophy and management accounting ,\" Kyoto University Graduate School of Economics, Working Paper No.94, February, 2008"
         }, 
         {
-            "EndYear": "2000", 
-            "StartYear": "1999", 
-            "Grant": "\u300c\u91d1\u878d\u5546\u54c1\u306e\u4f1a\u8a08\u300d\u3068\u300c\u5305\u62ec\u5229\u76ca\u300d\u306e\u653f\u6cbb\u7d4c\u6e08\u5b66\u7684\u5206\u6790"
+            "Info": "(EGOS 2009/07)", 
+            "Title": "Capabilities to sell technologies: Open innovation and internal organization of diversified firms"
         }, 
         {
-            "EndYear": "1999", 
-            "StartYear": "1997", 
-            "Grant": "\u73fe\u4ee3\u65e5\u672c\u306b\u304a\u3051\u308b\u91d1\u878d\u30b7\u30b9\u30c6\u30e0\u306e\u8ee2\u63db\u3068\u9769\u65b0\u7684\u7d4c\u55b6\u8ca1\u52d9\u6226\u7565\u306e\u7814\u7a76"
+            "Info": "(AOS Workshop on Accounting and Strategizing 2010/05/08)", 
+            "Title": "Management Credo in Accounting Practice: Phronesis and strategizing in dialectical structuration processes"
         }, 
         {
-            "EndYear": "1998", 
-            "StartYear": "1996", 
-            "Grant": "\u4f01\u696d\u6d3b\u52d5\u306e\u591a\u56fd\u7c4d\u5316\u306b\u4f34\u3046\u56fd\u969b\u79df\u7a0e\u6469\u64e6\u3078\u306e\u4e3b\u8981\u56fd\u306e\u5bfe\u5fdc\u3068\u79df\u7a0e\u653f\u7b56\u306e\u56fd\u969b\u7684\u8abf\u6574\u306e\u9032\u5c55"
+            "Info": "(European Accounting Association Annual Congress 2010/05/20)", 
+            "Title": "Accounting and Emotion, a case study of a financial institution"
         }, 
         {
-            "Grant": "\u91d1\u878d\u6a5f\u95a2\u306e\u4f1a\u8a08\u306b\u95a2\u3059\u308b\u7814\u7a76"
+            "Info": "(Global Management Accounting Research Symposium 2010/06)", 
+            "Title": "Management Control for Product Innovation in a Rapidly Changing Environment"
         }, 
         {
-            "Grant": "\u4f1a\u8a08\u30b7\u30b9\u30c6\u30e0\u306b\u95a2\u308f\u308b\u91d1\u878d\u898f\u5236\u306b\u95a2\u3059\u308b\u7814\u7a76"
+            "Info": "(Global Management Acoounting Rersearch Symposium 2011/06)", 
+            "Title": "Accounting and Emotion"
         }, 
         {
-            "StartYear": "2003", 
-            "Grant": "\u56fd\u969b\u4f1a\u8a08\u57fa\u6e96\u8a2d\u5b9a\u904e\u7a0b\u306b\u304a\u3051\u308b\u53c2\u52a0\u69cb\u9020\u306e\u5909\u5316\u3068\u4f1a\u8a08\u7406\u8ad6\u306e\u5f79\u5272\u306b\u95a2\u3059\u308b\u7814\u7a76"
+            "Info": "(CPA Australia, 2011 CPA Congress, Sydney Convention and Exhibition Centre, Australia 2011/10/18)", 
+            "Title": "Strategizing and Management Accounting in Japan"
         }, 
         {
-            "StartYear": "2003", 
-            "Grant": "\u6b21\u4e16\u4ee3\u6280\u8853\u306e\u7814\u7a76\u958b\u767a\u30de\u30cd\u30b8\u30e1\u30f3\u30c8"
+            "Info": "(\u539f\u4fa1\u8a08\u7b97\u7814\u7a76\u5b66\u4f1a\u95a2\u897f\u90e8\u4f1a 2012/02/19)", 
+            "Title": "\u4f1a\u8a08\u3068\u611f\u60c5"
         }, 
         {
-            "Grant": "\u4f1a\u8a08\u3068\u74b0\u5883\u3068\u306e\u5171\u9032\u5316\u306b\u95a2\u3059\u308b\u7814\u7a76"
+            "Info": "(\u65e5\u672c\u516c\u8a8d\u4f1a\u8a08\u58eb\u5354\u4f1a\u7b2c33\u56de\u7814\u7a76\u5927\u4f1a 2012/07/18)", 
+            "Title": "\u81e8\u5e8a\u4f1a\u8a08\u5b66\u306e\u840c\u82bd \u2015\u4e8b\u696d\u518d\u751f\u306e\u73fe\u5834\u304b\u3089\u2015\u300d\u3092\u5831\u544a\u3002"
         }, 
         {
-            "EndYear": "2007", 
-            "StartYear": "2005", 
-            "Grant": "\u6b21\u4e16\u4ee3\u7ba1\u7406\u4f1a\u8a08\u306e\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\u306b\u95a2\u3059\u308b\u7814\u7a76"
+            "Info": "(European Accounting Association Annual Congress, University of DePhine, Paris 2013/05/07)", 
+            "Title": "Responsibility Accounting as a Belief System"
+        }, 
+        {
+            "Info": "(Global Management Accounting Research Symposium, Michigan State University, East Lancing, USA 2013/06/28)", 
+            "Title": "How Management Accounting creates Business Success in Japan"
+        }, 
+        {
+            "Info": "(Asian Pacific Interdisciplinary Research in Accounting Conference, Emerging Scholar Colloquium 2013/07/24)", 
+            "Title": "Joy of Doing Interdisciplinary Research"
+        }, 
+        {
+            "Info": "(Asian Pacific Interdisciplinary Research in Accounting Conference 2013/07/27)", 
+            "Title": "Responsibility Accounting as a Belief System"
+        }, 
+        {
+            "Info": "(\u7ba1\u7406\u4f1a\u8a08\u5b66\u4f1a\u5168\u56fd\u5927\u4f1a 2013/09/14)", 
+            "Title": "\u7ba1\u7406\u4f1a\u8a08\u7814\u7a76\u306b\u304a\u3051\u308b\u30a2\u30af\u30b7\u30e7\u30f3\u30ea\u30b5\u30fc\u30c1"
+        }, 
+        {
+            "Info": "(New Zealand Management Accounting Conference, Queenstown Resort College 2013/11/04)", 
+            "Title": "Role of Middle Managers in Hospitals"
+        }, 
+        {
+            "Info": "(University of Auckland, Management Accounting Seminar 2013/11/06)", 
+            "Title": "Emotional dimension of accounting practices"
+        }, 
+        {
+            "Info": "(2013/12/19)", 
+            "Title": "How Amoeba Management turnaround Businesses in Japan"
+        }, 
+        {
+            "Info": "(GMARS(GLOBAL Management Accounting Research Symposium) 2014/06/26)", 
+            "Title": "Management control systems for exploration and exploitation: A case study of a manufacturing company"
+        }, 
+        {
+            "Info": "(CPA(Critical Perspectives on Accounting) 2014/07/08)", 
+            "Title": "Responsibility Accounting System as a Belief System"
         }
     ], 
-    "ResearchKeywords": [
-        "\u79d1\u5b66\u7684\u65b9\u6cd5", 
-        "\u67fb\u8aad\u5236\u5ea6", 
-        "\u8ca1\u52d9\u4f1a\u8a08\u7814\u7a76", 
-        "\u7814\u7a76\u65b9\u6cd5", 
-        "\u30d1\u30e9\u30c0\u30a4\u30e0", 
-        "\u30de\u30cd\u30b8\u30e1\u30f3\u30c8\u30fb\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb", 
-        "\u7ba1\u7406\u4f1a\u8a08", 
-        "\u7d44\u7e54\u6587\u5316", 
-        "\u6226\u7565\u7ba1\u7406\u4f1a\u8a08", 
-        "BSC", 
-        "\u5185\u90e8\u7d71\u5236", 
-        "\u30c7\u30a3\u30b9\u30af\u30ed\u30fc\u30b8\u30e3\u30fc", 
-        "\u30a2\u30e1\u30fc\u30d0\u7d4c\u55b6", 
-        "\u30ea\u30b9\u30af\u30de\u30cd\u30b8\u30e1\u30f3\u30c8", 
-        "\u81e8\u5e8a\u4f1a\u8a08\u5b66", 
-        "\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb\u30fb\u30d1\u30c3\u30b1\u30fc\u30b8", 
-        "\u793e\u4f1a\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb", 
-        "\u30ec\u30d0\u30fc\u30fb\u30aa\u30d6\u30fb\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb", 
-        "\u7406\u5ff5\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb", 
-        "COSO", 
-        "\u7d30\u5247\u4e3b\u7fa9", 
-        "\u7d4c\u55b6\u7406\u5ff5", 
-        "Tacit Knowing", 
-        "\u5171\u9032\u5316", 
-        "G4+1", 
-        "\u4f1a\u8a08\u57fa\u6e96\u8a2d\u5b9a\u69cb\u9020", 
-        "\u5305\u62ec\u5229\u76ca", 
-        "\u76f8\u8ee2\u79fb", 
-        "\u91d1\u878d\u5546\u54c1", 
-        "\u56fd\u969b\u4f1a\u8a08\u57fa\u6e96\u59d4\u54e1\u4f1a", 
-        "\u4f1a\u8a08\u57fa\u6e96\u8a2d\u5b9a\u904e\u7a0b", 
-        "\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb\u30fb\u30d0\u30c3\u30b1\u30fc\u30b8", 
-        "\u6df7\u5408\u5c5e\u6027\u30e2\u30c7\u30eb", 
-        "ERM", 
-        "\u4f1a\u8a08\u57fa\u6e96", 
-        "\u4f1a\u8a08"
-    ]
+    "Books": [
+        {
+            "Info": "\u30a2\u30e1\u30fc\u30d0\u7d4c\u55b6\u5b66\u8853\u7814\u7a76\u4f1a\u00a02010\u5e7411\u6708", 
+            "Title": "\u30a2\u30e1\u30fc\u30d0\u7d4c\u55b6\u5b66 \u2015\u7406\u8ad6\u3068\u5b9f\u8a3c\u2015"
+        }, 
+        {
+            "Info": "\u6643\u6d0b\u66f8\u623f,35-56\u00a01998\u5e7411\u6708", 
+            "Title": "\u30b0\u30ed\u30fc\u30d0\u30eb\u5316\u3068\u56fd\u969b\u653f\u6cbb\u7d4c\u6e08\u5b66"
+        }, 
+        {
+            "Info": "\u6643\u6d0b\u66f8\u623f\u00a01998\u5e7412\u6708\u00a0ISBN\uff1a4771010455", 
+            "Title": "\u56fd\u969b\u91d1\u878d\u898f\u5236\u3068\u4f1a\u8a08\u5236\u5ea6"
+        }, 
+        {
+            "Info": "\u6709\u6590\u95a3,139-155\u00a01999\u5e7404\u6708", 
+            "Title": "\u73fe\u4ee3\u56fd\u969b\u91d1\u878d\u8ad6"
+        }, 
+        {
+            "Info": "\u7acb\u547d\u9928\u5927\u5b66\u7d4c\u55b6\u6226\u7565\u7814\u7a76\u30bb\u30f3\u30bf\u30fc,\u00a02000\u5e7403\u6708", 
+            "Title": "\u30b0\u30ed\u30fc\u30d0\u30eb\u5316\u6642\u4ee3\u306e\u4eac\u90fd\u4f01\u696d"
+        }, 
+        {
+            "Info": "\u795e\u6238\u5927\u5b66\u7d4c\u6e08\u7d4c\u55b6\u7814\u7a76\u6240,23-60\u00a02000\u5e7410\u6708", 
+            "Title": "\u65e5\u672c\u578b\u9280\u884c\u30b7\u30b9\u30c6\u30e0\u306e\u5909\u8c8c\u3068\u4f01\u696d\u4f1a\u8a08"
+        }, 
+        {
+            "Info": "\u4e5d\u5dde\u5927\u5b66\u51fa\u7248\u4f1a\u00a02002\u5e7403\u6708\u00a0ISBN\uff1a4873787270", 
+            "Title": "\u69cb\u9020\u5909\u5316\u3068\u91d1\u878d\u30fb\u7d4c\u6e08"
+        }, 
+        {
+            "Info": "\u4e5d\u5dde\u5927\u5b66\u51fa\u7248\u4f1a,183-202\u00a02003\u5e7401\u6708", 
+            "Title": "\u65e5\u672c\u306e\u57fa\u6e96\u8a2d\u5b9a\u69cb\u9020\u3068\u56fd\u969b\u7684\u74b0\u5883\u306e\u5909\u5bb9"
+        }, 
+        {
+            "Info": "\u6771\u4eac\u66f8\u7c4d,\u00a02003\u5e7409\u6708", 
+            "Title": "\u30a8\u30af\u30bb\u30eb\u3067\u308f\u304b\u308b\u4f01\u696d\u5206\u6790\u30fb\u6c7a\u7b97\u66f8"
+        }, 
+        {
+            "Info": "\u6709\u6590\u95a3\u00a02004\u5e7405\u6708", 
+            "Title": "\u73fe\u4ee3\u56fd\u969b\u91d1\u878d\u8ad6(\u65b0\u7248)"
+        }, 
+        {
+            "Info": "\u5ca9\u6ce2\u66f8\u5e97\u00a02005\u5e74\u00a0ISBN\uff1a4000224514", 
+            "Title": "\u300e\u4f1a\u8a08\u6539\u9769\u3068\u30ea\u30b9\u30af\u793e\u4f1a\u300f"
+        }, 
+        {
+            "Info": "\u30df\u30cd\u30eb\u30f4\u30a1\u66f8\u623f,102-120\u00a02006\u5e7402\u6708", 
+            "Title": "\u4e16\u754c\u7d4c\u6e08\u8ad6 \u2212\u30b0\u30ed\u30fc\u30d0\u30eb\u5316\u3092\u8d85\u3048\u3066\u2212"
+        }, 
+        {
+            "Info": "\u4e2d\u592e\u7d4c\u6e08\u793e\u00a02008\u5e7407\u6708\u00a0ISBN\uff1a4502286206", 
+            "Title": "\u6226\u7565\u3092\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb\u3059\u308b\u2015\u7ba1\u7406\u4f1a\u8a08\u306e\u53ef\u80fd\u6027 (\u30e1\u30eb\u30b3\u5b66\u8853\u632f\u8208\u8ca1\u56e3\u7814\u7a76\u53e2\u66f8)"
+        }, 
+        {
+            "Info": "\u4e2d\u592e\u7d4c\u6e08\u793e\u00a02012\u5e74\u00a0ISBN\uff1a9784502466007", 
+            "Title": "\u65e5\u672c\u4f01\u696d\u306e\u7ba1\u7406\u4f1a\u8a08\u30b7\u30b9\u30c6\u30e0"
+        }
+    ], 
+    "Cited_Patents": []
+}{
+    "Name_Katakana": "\u30b3\u30e2\u30ea \u30de\u30b5\u30cf\u30eb\u00a0", 
+    "Name_Japanese": "\u5c0f\u68ee \u96c5\u6674", 
+    "Department_Affiliation": {
+        "Department": "\u5927\u5b66\u9662\u5de5\u5b66\u7814\u7a76\u79d1 \u6a5f\u68b0\u7406\u5de5\u5b66\u5c02\u653b \u4eac\u90fd\u5927\u5b66 \u5927\u5b66\u9662\u5de5\u5b66\u7814\u7a76\u79d1 \u6a5f\u68b0\u7406\u5de5\u5b66\u5c02\u653b", 
+        "Institution_link": "/detail.php?JGLOBAL_ID=200905083384717905&q=%E4%BA%AC%E9%83%BD%E5%A4%A7%E5%AD%A6&t=1", 
+        "Institution": "\u4eac\u90fd\u5927\u5b66", 
+        "Address": "\u3012606-8501 \u4eac\u90fd\u5e9c\u4eac\u90fd\u5e02\u5de6\u4eac\u533a\u5409\u7530\u672c\u753a"
+    }, 
+    "Name_English": "\u00a0KOMORI Masaharu", 
+    "JobTitle": "\u52a9\u6559\u6388", 
+    "Other_Source_Links": [
+        {
+            "Source": "Personal_Home_Page", 
+            "Link": "http://www.mefd.me.kyoto-u.ac.jp/members/komori/index.htm&sign=5979286f9fd715e55a09954c9dac2acf"
+        }, 
+        {
+            "LinkID": "0192961", 
+            "Link": "http://researchmap.jp/read0192961/?lang=japanese&sign=4ef300c93a66af0f0883df881f00f7ae", 
+            "Source": "researchmap"
+        }, 
+        {
+            "Source": "Resolver", 
+            "Link": "http://rns.nii.ac.jp/services/redirect/?source=kaken&target=resolver&id=90335191&sign=c47487f396a04a889e52f77e977b9629", 
+            "LinkID": "90335191"
+        }, 
+        {
+            "Source": "NDL", 
+            "Link": "http://iss.ndl.go.jp/api/openurl?au=%E5%B0%8F%E6%A3%AE%E9%9B%85%E6%99%B4&sign=82fc217a49866f09e3c0d71673a5480f"
+        }
+    ], 
+    "Cited_Papers": [], 
+    "JGLOBALID": "200901064753496323", 
+    "Presentations": [
+        {
+            "Info": "(\u4e2d\u90e8\u6b6f\u8eca\u61c7\u8a71\u4f1a\u5e73\u621016\u5e74\u5ea6\u6b6f\u8eca\u30b7\u30f3\u30dd\u30b8\u30a6\u30e0 2005/02)", 
+            "Title": "\u632f\u52d5\u3068\u5f37\u5ea6\u306e\u53cc\u65b9\u3092\u8003\u616e\u3057\u305f\u6b6f\u8eca\u6700\u9069\u8a2d\u8a08\u6cd5"
+        }, 
+        {
+            "Info": "(\u7cbe\u5bc6\u5de5\u5b66\u4f1a\u6210\u5f62\u30d7\u30e9\u30b9\u30c1\u30c3\u30af\u6b6f\u8eca\u7814\u7a76\u5c02\u9580\u59d4\u54e1\u4f1a\u7b2c83\u56de\u7814\u7a76\u4f1a 2006/08)", 
+            "Title": "\u6b6f\u8eca\u306e\u632f\u52d5\u9a12\u97f3\u3068\u305d\u306e\u4f4e\u6e1b\u5316\u6cd5"
+        }, 
+        {
+            "Info": "(SCIVAX \u30bb\u30df\u30ca\u30fc 2007/06)", 
+            "Title": "\u30c0\u30a4\u30e4\u30e2\u30f3\u30c9\u30e2\u30fc\u30eb\u30c9\u3092\u7528\u3044\u305f\u30ac\u30e9\u30b9\u30de\u30a4\u30af\u30ed\u30fb\u30ca\u30ce\u30a4\u30f3\u30d7\u30ea\u30f3\u30c8\u52a0\u5de5\u6cd5\u306e\u7814\u7a76"
+        }, 
+        {
+            "Info": "(\u7cbe\u5bc6\u5de5\u5b66\u4f1a\u95a2\u897f\u652f\u90e8\u751f\u7523\u6280\u8853\u7279\u5225\u30bb\u30df\u30ca\u30fc 2007/12)", 
+            "Title": "\u6b6f\u8eca\u306e\u4e09\u6b21\u5143\u66f2\u9762\u9ad8\u7cbe\u5ea6\u8a08\u6e2c\u6280\u8853"
+        }, 
+        {
+            "Info": "(\u7cbe\u5bc6\u5de5\u5b66\u4f1a\u95a2\u897f\u652f\u90e8 \u5546\u8b70\u54e1\u4ea4\u6b53\u4ea4 \u6d41\u4f1a \u7b2c44\u56de\u30a4\u30d6\u30cb\u30f3\u30b0\u30bb\u30df\u30ca\u30fc 2008/11)", 
+            "Title": "\u30c8\u30e9\u30f3\u30b9\u30df\u30c3\u30b7\u30e7\u30f3\u7528\u30ae\u30e4\u306e\u6027\u80fd\u3068\u7cbe\u5ea6\u30fb\u8a08\u6e2c\u30fb\u30a2\u30fc\u30c6\u30a3\u30d5\u30a1\u30af\u30c8 ~\u30ca\u30ce\u3092\u76ee\u6307\u3057\u3066~"
+        }, 
+        {
+            "Info": "(\u65e5\u672c\u6a5f\u68b0\u5b66\u4f1a(\u8a3a\u65ad\u30fb\u30e1\u30f3\u30c6\u30ca\u30f3\u30b9\u6280\u8853\u306b\u95a2\u3059\u308b\u7814\u7a76\u4f1a),\u65e5\u672c\u30c8\u30e9\u30a4\u30dc \u30ed\u30b8\u30fc\u5b66\u4f1a(\u30e1\u30f3\u30c6\u30ca\u30f3\u30b9\u30fb\u30c8\u30e9\u30a4\u30dc\u30ed\u30b8\u30fc\u7814\u7a76\u4f1a),\u65e5\u672c\u8a2d\u5099\u7ba1\u7406\u5b66\u4f1a(\u6700\u65b0\u8a2d\u5099\u8a3a\u65ad\u6280\u8853\u306e\u5b9f\u7528\u6027\u306b\u95a2\u3059\u308b\u7814\u7a76\u4f1a),\u5408\u540c\u7814\u7a76\u4f1a 2009/07)", 
+            "Title": "\u6b6f\u8eca\u632f\u52d5\u306e\u57fa\u790e\u3068\u8868\u9762\u5f62\u72b6\u4fee\u6574\u306b\u3088\u308b\u4f4e\u632f\u52d5\u5316"
+        }, 
+        {
+            "Info": "(\u65e5\u672c\u6a5f\u68b0\u5b66\u4f1a\u95a2\u897f\u652f\u90e8\u7b2c11\u56de\u79cb\u5b63\u6280\u8853\u4ea4\u6d41\u30d5\u30a9\u30fc\u30e9\u30e0 2010/10/16)", 
+            "Title": "\u4e2d\u51f8\u5f62\u306b\u6b6f\u9762\u5f62\u72b6\u3092\u4fee\u6574\u3057\u305f\u6b6f\u8eca\u306e\u632f\u52d5\u306e\u4e00\u822c\u7279\u6027(\u7b2c1\u5831,\u304b\u307f\u3042\u3044\u306e\u4e00\u822c\u5316\u30e2\u30c7\u30eb\u306e\u63d0\u6848)"
+        }, 
+        {
+            "Info": "(\u81ea\u52d5\u8eca\u6280\u8853\u4f1a\u52d5\u529b\u4f1d\u9054\u7cfb\u90e8\u9580\u59d4\u54e1\u4f1a 2011/02/03)", 
+            "Title": "\u5e38\u6642\u52d5\u529b\u4f1d\u9054\u53ef\u80fd\u306a\u5909\u901f\u30b7\u30b9\u30c6\u30e0"
+        }, 
+        {
+            "Info": "(\u516c\u76ca\u793e\u56e3\u6cd5\u4eba\u7cbe\u5bc6\u5de5\u5b66\u4f1a \u6210\u5f62\u30d7\u30e9\u30b9\u30c1\u30c3\u30af\u6b6f\u8eca\u7814\u7a76\u5c02\u9580\u59d4\u54e1\u4f1a \u7814\u7a76\u4f1a 2011/12/09)", 
+            "Title": "\u975e\u5186\u5f62\u6b6f\u8eca\u3092\u7528\u3044\u305f\u5e38\u6642\u4f1d\u9054\u5909\u901f\u30b7\u30b9\u30c6\u30e0"
+        }, 
+        {
+            "Info": "(\u5e73\u621024\u5e74\u5ea6 \u9577\u3055\u30af\u30e9\u30d6\u7b2c2\u56de\u4f1a\u5408,CMM\u30e6\u30fc\u30b6\u30fc\u30ba\u30af\u30e9\u30d6\u4f1a\u5408 2013/03/08)", 
+            "Title": "\u30c8\u30e9\u30f3\u30b9\u30df\u30c3\u30b7\u30e7\u30f3\u3084\u30ed\u30dc\u30c3\u30c8\u306e\u30e1\u30ab\u30cb\u30ba\u30e0\u3068\u52d5\u529b\u4f1d\u9054\u8981\u7d20\u306e\u9ad8\u7cbe\u5ea6\u5f62\u72b6\u4fdd\u8a3c"
+        }
+    ], 
+    "Books": [
+        {
+            "Info": "\u4e00\u822c\u793e\u56e3\u6cd5\u4eba\u65e5\u672c\u6a5f\u68b0\u5b66\u4f1a\u00a02000\u5e7407\u6708", 
+            "Title": "\u5727\u529b\u89d2\u306a\u3089\u3073\u306b\u6b6f\u7b4b\u306e\u50be\u304d\u304c\u3070\u3089\u3064\u304f\u306f\u3059\u3070\u6b6f\u8eca\u306e\u632f\u52d5\u6700\u9069\u5316\u6b6f\u9762\u8a2d\u8a08\u6cd5"
+        }, 
+        {
+            "Info": "\u65e5\u520a\u5de5\u696d\u65b0\u805e\u793e\u00a02002\u5e7411\u6708", 
+            "Title": "\u5f37\u304f\u3066\u9759\u304b\u306a\u6b6f\u8eca\u3092\u8a2d\u8a08\u3059\u308b\u65b9\u6cd5"
+        }, 
+        {
+            "Info": "\u65e5\u672c\u6a5f\u68b0\u5b66\u4f1a\u7814\u7a76\u5354\u529b\u90e8\u4f1aRC184\u7814\u7a76\u5831\u544a\u66f8,pp.30-35\u00a02002\u5e7412\u6708", 
+            "Title": "\u9ad8\u8ca0\u8377\u5bb9\u91cf\u5316\u3092\u72d9\u3063\u305f\u6b6f\u8eca\u306e\u6b6f\u7aef\u90e8\u63a5\u89e6\u306b\u3088\u308b\u640d\u50b7\u3068\u5bfe\u7b56"
+        }, 
+        {
+            "Info": "\u65e5\u672c\u30c8\u30e9\u30a4\u30dc\u30ed\u30b8-\u5b66\u4f1a\u00a02004\u5e7411\u6708", 
+            "Title": "\u6b6f\u8eca\u306e\u6700\u8fd1\u306e\u6280\u8853\u52d5\u5411"
+        }, 
+        {
+            "Info": "\u65e5\u672c\u30c8\u30e9\u30a4\u30dc\u30ed\u30b8-\u5b66\u4f1a\u00a02005\u5e7403\u6708", 
+            "Title": "\u9650\u754c\u5f37\u5ea6\u3092\u72d9\u3046\u6b6f\u8eca\u306e\u640d\u50b7\u306e\u4e00\u5f62\u614b"
+        }, 
+        {
+            "Info": "\u65e5\u672c\u6a5f\u68b0\u5b66\u4f1a\u6a5f\u7d20\u6f64\u6ed1\u8a2d\u8a08\u90e8\u9580\u30cb\u30e5\u30fc\u30b9\u30ec\u30bf\u30fc,27),pp.5\u00a02007\u5e7402\u6708", 
+            "Title": "\u30ca\u30ce\u7cbe\u5ea6\u30b2\u30fc\u30b8"
+        }, 
+        {
+            "Info": "\u65e5\u672c\u6a5f\u68b0\u5b66\u4f1aRC218\u7814\u7a76\u5831\u544a\u66f8),pp.174-175\u00a02007\u5e7404\u6708", 
+            "Title": "\u7d30\u90e8\u306e\u8a73\u7d30\u89b3\u5bdf\u3068\u5168\u4f53\u306e\u4fef\u77b0\u89b3\u5bdf"
+        }, 
+        {
+            "Info": "\u990a\u8ce2\u5802\u00a02007\u5e7406\u6708", 
+            "Title": "\u632f\u52d5\u3068\u5f37\u5ea6\u3092\u8003\u616e\u3057\u305f\u6b6f\u8eca\u6b6f\u9762\u4fee\u6574\u5f62\u72b6\u6700\u9069\u8a2d\u8a08\u6cd5"
+        }, 
+        {
+            "Info": "\u990a\u8ce2\u5802\u00a02008\u5e7408\u6708", 
+            "Title": "\u6b6f\u8eca\u6b6f\u9762\u5f62\u72b6\u8a08\u6e2c\u306b\u304a\u3051\u308b\u7cbe\u5ea6\u4fdd\u8a3c"
+        }, 
+        {
+            "Info": "Automation systems, Vol.25, No.3, pp.89-95\u00a02009\u5e7403\u6708", 
+            "Title": "\u6b6f\u8eca\u8a08\u6e2c\u3068\u6a19\u6e96"
+        }, 
+        {
+            "Info": "\u65e5\u672c\u6a5f\u68b0\u5b66\u4f1aRC230\u7814\u7a76\u5831\u544a\u66f8,pp.208\u00a02009\u5e7404\u6708", 
+            "Title": "\u6a5f\u69cb"
+        }, 
+        {
+            "Info": "\u6a5f\u68b0\u8a2d\u8a08,53\u5dfb10\u53f7,pp.97-101\u00a02009\u5e7407\u6708", 
+            "Title": "\u6b6f\u8eca\u306e\u8ab2\u984c\u3068\u6280\u8853\u958b\u767a\u4e8b\u4f8b"
+        }, 
+        {
+            "Info": "\u65e5\u520a\u5de5\u696d\u65b0\u805e,\u671d\u520a,8\u9762-9 \u9762\u00a02011\u5e7404\u670815\u65e5", 
+            "Title": "\u975e\u5186\u5f62\u6b6f\u8eca\u3092\u7528\u3044\u305f\u201d\u99c6\u52d5\u529b\u629c\u3051\u201d\u304c\u30bc\u30ed\u306e\u5909\u901f\u30b7\u30b9\u30c6\u30e0\u306b\u3088\u308a\u4e8c\u9178\u5316\u70ad\u7d20\u6392\u51fa\u91cf\u3092\u524a\u6e1b"
+        }, 
+        {
+            "Info": "\u30b1\u30df\u30ab\u30eb\u30a8\u30f3\u30b8\u30cb\u30e4\u30ea\u30f3\u30b0,Vol.57,No.5,pp.36-40\u00a02012\u5e7405\u670801\u65e5", 
+            "Title": "\u65b0\u6a5f\u80fd\u30ed\u30dc\u30c3\u30c8\u30e1\u30ab\u30cb\u30ba\u30e0-\u4efb\u610f\u306e\u65b9\u5411\u306b\u79fb\u52d5\u3067\u304d\u308b\u8eca\u8f2a\u3068\u5909\u901f\u30fb\u99c6\u52d5\u30b7\u30b9\u30c6\u30e0-"
+        }, 
+        {
+            "Info": "2012\u5e7408\u6708", 
+            "Title": "\u5168\u65b9\u5411\u306b\u79fb\u52d5\u53ef\u80fd\u306a\u8eca\u8f2a\u6a5f\u69cb\u306e\u958b\u767a"
+        }, 
+        {
+            "Info": "\u30b5\u30a4\u30d0\u30cd\u30c3\u30c8\u30cb\u30e5\u30fc\u30b9,No.136,Winter 2013,pp.6-7\u00a02013\u5e74", 
+            "Title": "\u65b0\u3057\u3044\u6280\u8853\u3067\u672a\u6765\u306e\u4e57\u308a\u7269\u3092\u5275\u9020\u3059\u308b"
+        }
+    ], 
+    "Cited_Patents": []
 }

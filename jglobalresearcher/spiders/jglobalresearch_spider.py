@@ -196,7 +196,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		#translation of unicode headers into english
 
 		#re pattern for finding JGLOBALIDs
-		for index,div in enumerate(soup.html.body.td.findAll('div',recursive=False)):
+		for div in soup.findAll('div',recursive=False):
 
 		    paperDict = {}
 
@@ -217,7 +217,6 @@ class jglobalresearcher_spider(CrawlSpider):
 		        if p['class'] ==['txtR', 'light']:
 		            paperDict['Title'] = p.text
 
-		        
 		    for span in div.next_sibling.findAll('span',{'class':'fwB'}):
 		        translatedKey = translationDict[span.text.replace(u'\uff1a','').strip()]
 		        if translatedKey=='Authors':
@@ -225,7 +224,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		        else:
 		            paperDict[translatedKey]= span.next_sibling.strip()
 		    papers.append(paperDict)
-    
+		return papers
 	def scrapePapers(self,elem):
 		papers = []
 		soup = self.returnProperSoup(elem)
@@ -284,7 +283,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		soup = self.returnProperSoup(elem)
 
 		if len(soup) == 0:
-			return bookArray
+			return array
 		for div in soup.body.findAll('div',recursive=False):
 			d = {}
 			textArray = div.findAll('p')
@@ -322,7 +321,7 @@ class jglobalresearcher_spider(CrawlSpider):
 		if len(soup) == 0:
 			return array
 
-		for div in soup.td.findAll('div',recursive=False):
+		for div in soup.findAll('div'):
 		    textArray = div.find('p')
 		    textArray.text
 
@@ -458,20 +457,20 @@ class jglobalresearcher_spider(CrawlSpider):
 		mainDict['JobTitle'] = jobTitle_div.text
 		
 
-		mainDict['Field_Of_Study'] = self.parseAffiliationTags(field_of_study)
-		mainDict['ResearchKeywords'] = self.parseAffiliationTags(research_keywords)
-		mainDict['ResearchGrants'] = self.parseCareerTimeline(grantResearch,'Grants')		
-		mainDict['Papers'] = self.scrapePapers(papersElem)
-		mainDict['Misc'] = self.scrapePapers(miscElem)
+		# # mainDict['Field_Of_Study'] = self.parseAffiliationTags(field_of_study)
+		# # mainDict['ResearchKeywords'] = self.parseAffiliationTags(research_keywords)
+		# # mainDict['ResearchGrants'] = self.parseCareerTimeline(grantResearch,'Grants')		
+		# # mainDict['Papers'] = self.scrapePapers(papersElem)
+		# # mainDict['Misc'] = self.scrapePapers(miscElem)
 		mainDict['Books'] = self.parseBooksPresentations(booksElem)
-		mainDict['Patents'] = self.parsePatents(patentsElem)
+		# mainDict['Patents'] = self.parsePatents(patentsElem)
 		mainDict['Presentations'] = self.parseBooksPresentations(presentationsElem)
-		mainDict['Works'] = self.parseWorks(workElem)
-		mainDict['ResearchGrants'] = self.parseCareerTimeline(educationElem,'Institution_Name')	
-		mainDict['Degrees'] = self.parseDegree(degreeElem)
-		mainDict['Career'] = self.parseCareerTimeline(careerElem,'Career_Title')	
-		mainDict['Committees'] = self.parseCareerTimeline(committeeElem,'Committee_Title')	
-		mainDict['Societies_Affiliaitons'] = self.parseAffiliationTags(societiesElem)
+		# mainDict['Works'] = self.parseWorks(workElem)
+		# mainDict['ResearchGrants'] = self.parseCareerTimeline(educationElem,'Institution_Name')	
+		# mainDict['Degrees'] = self.parseDegree(degreeElem)
+		# mainDict['Career'] = self.parseCareerTimeline(careerElem,'Career_Title')	
+		# mainDict['Committees'] = self.parseCareerTimeline(committeeElem,'Committee_Title')	
+		# mainDict['Societies_Affiliaitons'] = self.parseAffiliationTags(societiesElem)
 		mainDict['Cited_Papers'] = self.parseCitedPapersPatent(citedPapersElem)
 		mainDict['Cited_Patents'] = self.parseCitedPapersPatent(citedPatentsElem)
 
